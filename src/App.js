@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
@@ -18,15 +18,15 @@ class App extends Component {
           <h1>CarryOkay</h1>
           <p>Hello friend 😬</p>
           <nav className="home-nav">
-            <Link to="/mysongs" >My Songs</Link>
-            <Link to="/songbook">Songbook</Link>
+            <NavLink to="/mysongs" >My Songs</NavLink>
+            <NavLink to="/songbook">Songbook</NavLink>
           </nav>
         </Route>
         <Route path="/mysongs">
-
+          <p>Made it to mysongs</p>
         </Route>
         <Route path="/songbook">
-
+          <p>Made it to songbook</p>
         </Route>
       </div>
     )
