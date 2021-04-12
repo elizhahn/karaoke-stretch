@@ -3,23 +3,14 @@ import { Route, NavLink } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import './App.css';
+import songData from './song-data'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      songBook: [{
-        title: 'My Boo',
-        artist: 'Usher',
-        genres: ['rnb', '90s', 'throwback'],
-        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
-      }],
-      mySongs: [{
-        title: 'My Boo',
-        artist: 'Usher',
-        genres: ['rnb', '90s', 'throwback'],
-        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
-      }]
+      songBook: [...songData],
+      mySongs: []
     }
   }
 
