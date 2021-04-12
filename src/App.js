@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import { Route, NavLink } from 'react-router-dom'
+import Navigation from './components/Navigation/Navigation'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      songs: [],
+      mySongs: []
+    }
+  }
+
+  render () {
+    return (
+      <div className="app">
+        <Route exact path="/">
+          <h1>CarryOkay</h1>
+          <p>Hello friend 😬</p>
+          <Navigation class="home-nav" />
+        </Route>
+        <Route path="/mysongs">
+          <p>Made it to mysongs</p>
+          <Navigation class="mysongs-nav" />
+        </Route>
+        <Route path="/songbook">
+          <p>Made it to songbook</p>
+          <Navigation class="songbook-nav" />
+        </Route>
+      </div>
+    )
+  }
 }
 
 export default App;
