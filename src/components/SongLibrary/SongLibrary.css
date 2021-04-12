@@ -1,9 +1,13 @@
 .library {
   display: grid;
+  width: 100vw;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
+  gap: 10px;
+  justify-items: stretch;
+  align-items: stretch
 }
 
-.library > * {
-  
-}
+/* .library > * {
+  ;
+} */
