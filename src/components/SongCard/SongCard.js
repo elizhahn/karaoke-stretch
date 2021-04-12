@@ -18,6 +18,7 @@ const SongCard = (props) => {
         { listItems }
       </ul>
       <img src={ album_cover }/>
+      <button>Add</button>
     </div>
   );
 };
