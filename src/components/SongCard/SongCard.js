@@ -1,9 +1,10 @@
 import React from 'react';
+import '../SongCard/SongCard.css'
 
 const SongCard = (props) => {
   const { title, artist, genres, album_cover } = props;
 
-  const genres = genres.map(genre => {
+  const listItems = genres.map(genre => {
     return (
       <li> { genre } </li>
     );
@@ -14,7 +15,7 @@ const SongCard = (props) => {
       <h2>{ title }</h2>
       <p>{ artist }</p>
       <ul>
-        { genres }
+        { listItems }
       </ul>
       <img src={ album_cover }/>
     </div>

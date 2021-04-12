@@ -9,7 +9,12 @@ class App extends Component {
     super();
     this.state = {
       songBook: [],
-      mySongs: []
+      mySongs: [{
+        title: 'My Boo',
+        artist: 'Usher',
+        genres: ['rnb', '90s', 'throwback'],
+        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
+      }]
     }
   }
 
