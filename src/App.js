@@ -23,14 +23,14 @@ class App extends Component {
           <Navigation class="home-nav" />
         </Route>
         <Route path="/mysongs">
-          <p>Made it to mysongs</p>
-          <SongLibrary songs={ this.state.mySongs }/>
+          <h1>My Songs</h1>
           <Navigation class="mysongs-nav" />
+          <SongLibrary songs={ this.state.mySongs }/>
         </Route>
         <Route path="/songbook">
-          <p>Made it to songbook</p>
-          <SongLibrary songs={ this.state.songBook }/>
+          <h1>SongBook</h1>
           <Navigation class="songbook-nav" />
+          <SongLibrary songs={ this.state.songBook }/>
         </Route>
       </div>
     )
