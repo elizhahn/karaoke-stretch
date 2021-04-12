@@ -1,8 +1,8 @@
 import React from 'react';
 import SongCard from '../SongCard/SongCard';
 
-const Library = (props) => {
-  const allSongs = props.songs.map(song => {
+const SongLibrary = ({ songs }) => {
+  const allSongs = songs.map(song => {
     return (
       <SongCard 
       title={ song.title }
@@ -20,4 +20,4 @@ const Library = (props) => {
   );
 };
 
-export default Library;
+export default SongLibrary;

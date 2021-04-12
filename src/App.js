@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Route, NavLink } from 'react-router-dom'
-import Navigation from './components/Navigation/Navigation'
-import Library from './components/Library/Library'
+import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
+import SongLibrary from './components/SongLibrary/SongLibrary';
 import './App.css';
 
 class App extends Component {
@@ -33,12 +33,12 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <p>Made it to mysongs</p>
-          <Library songs={ this.state.mySongs }/>
+          <SongLibrary songs={ this.state.mySongs }/>
           <Navigation class="mysongs-nav" />
         </Route>
         <Route path="/songbook">
           <p>Made it to songbook</p>
-          <Library songs={ this.state.songBook }/>
+          <SongLibrary songs={ this.state.songBook }/>
           <Navigation class="songbook-nav" />
         </Route>
       </div>
