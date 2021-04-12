@@ -1,14 +1,25 @@
-import React, { Component } from 'react'
-import { Route, NavLink } from 'react-router-dom'
-import Navigation from './components/Navigation/Navigation'
+import React, { Component } from 'react';
+import { Route, NavLink } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
+import SongLibrary from './components/SongLibrary/SongLibrary';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      songs: [],
-      mySongs: []
+      songBook: [{
+        title: 'My Boo',
+        artist: 'Usher',
+        genres: ['rnb', '90s', 'throwback'],
+        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
+      }],
+      mySongs: [{
+        title: 'My Boo',
+        artist: 'Usher',
+        genres: ['rnb', '90s', 'throwback'],
+        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
+      }]
     }
   }
 
@@ -22,10 +33,12 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <p>Made it to mysongs</p>
+          <SongLibrary songs={ this.state.mySongs }/>
           <Navigation class="mysongs-nav" />
         </Route>
         <Route path="/songbook">
           <p>Made it to songbook</p>
+          <SongLibrary songs={ this.state.songBook }/>
           <Navigation class="songbook-nav" />
         </Route>
       </div>
