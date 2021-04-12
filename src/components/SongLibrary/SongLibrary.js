@@ -2,6 +2,7 @@ import React from 'react';
 import SongCard from '../SongCard/SongCard';
 
 const SongLibrary = ({ songs }) => {
+  console.log(songs)
   const allSongs = songs.map(song => {
     return (
       <SongCard 
