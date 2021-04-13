@@ -1,7 +1,7 @@
 import React from 'react';
 import '../SongCard/SongCard.css'
 
-const SongCard = ({ title, artist, genres, album_cover }) => {
+const SongCard = ({ id, title, artist, genres, album_cover, handleSong }) => {
   const listItems = genres.map(genre => {
     return (
       <li> { genre } </li>
@@ -16,7 +16,7 @@ const SongCard = ({ title, artist, genres, album_cover }) => {
         { listItems }
       </ul>
       <img src={ album_cover }/>
-      <button>Add</button>
+      <button onClick={() => handleSong(id)}>Add</button>
     </div>
   );
 };
