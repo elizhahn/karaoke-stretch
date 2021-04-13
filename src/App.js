@@ -3,27 +3,35 @@ import { Route, NavLink } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import './App.css';
+import songData from "./song-data";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      songBook: [{
-        title: 'My Boo',
-        artist: 'Usher',
-        genres: ['rnb', '90s', 'throwback'],
-        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
-      }],
-      mySongs: [{
-        title: 'My Boo',
-        artist: 'Usher',
-        genres: ['rnb', '90s', 'throwback'],
-        album_cover: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Usher_-_Confessions_album_cover.jpg/220px-Usher_-_Confessions_album_cover.jpg'
-      }]
+      songBook: [],
+      mySongs: []
     }
   }
 
+  componentDidMount() {
+    this.setState({songBook: [...this.state.songBook, ...songData]})
+  }
+
+  addSong = (id) => {
+    console.log("test")
+   const songToAdd = this.state.songBook.find(song => {
+    return song.id === id
+    })
+    this.setState({mySongs: [...this.state.mySongs, songToAdd]})
+  }
+
+  removeSong = () => {
+
+  }
+
   render () {
+    console.log(this.state)
     return (
       <div className="app">
         <Route exact path="/">
@@ -33,12 +41,12 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <p>Made it to mysongs</p>
-          <SongLibrary songs={ this.state.mySongs }/>
+          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong}/>}
           <Navigation class="mysongs-nav" />
         </Route>
         <Route path="/songbook">
           <p>Made it to songbook</p>
-          <SongLibrary songs={ this.state.songBook }/>
+         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong}/>}
           <Navigation class="songbook-nav" />
         </Route>
       </div>
