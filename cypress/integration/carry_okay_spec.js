@@ -42,7 +42,7 @@ describe('CarryOkay', () => {
 
     it('should be able to navigate from Song Book view to Home view', () => {
       cy.get('a[id="song-book"]').click();
-      cy.expect('true').to.equal('false');
+      cy.expect(true).to.equal(false);
     });
 
     it('should be able to navigate from My Songs view to Song Book view', () => {
@@ -69,6 +69,7 @@ describe('CarryOkay', () => {
 
     it('should display My Song page components', () => {
       cy.get('h1').contains('My Songs');
+      //Check for library component
       cy.get('a[id="my-songs"]').contains("My Songs");
       cy.get('a[id="song-book"]').contains("Songbook");
     });
@@ -97,10 +98,43 @@ describe('CarryOkay', () => {
 
   describe('Song Book', () => {
 
-   
+    beforeEach(() => {
+      cy.get('a[id="song-book"]').click();
+    });
 
+    it.only('should display Song Book page components', () => {
+      cy.get('h1').contains('Song Book');
+      cy.get('form').should('exist');
+      //Test for search bar button
+      //Test for library component
+      cy.get('a[id="my-songs"]').contains("My Songs");
+      cy.get('a[id="song-book"]').contains("Songbook");
+    });
 
+    it('should display list of all songs', () => {
+      cy.fixture('/song-data.js').then((data) => {
+        data.songData.forEach(song => {
+          cy.get('div').contains(song.song_title);
+          cy.get('div').contains(song.artist);
 
+          song.genres.forEach(genre => {
+            cy.get('div').contains(genre);
+          });
+        });
+      });
+    });
+
+    it('should allow user to make a search', () => {
+      expect(true).to.equal(false);
+    });
+
+    it('should display relevant search results', () => {
+      expect(true).to.equal(false);
+    });
+
+    it('should display a helpful message if search yields no results', () => {
+      expect(true).to.equal(false);
+    });
 
   });
 
