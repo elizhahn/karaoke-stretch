@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const Navigation = (props) => {
   return (
     <nav className= { props.class } >
-      <NavLink to="/mysongs" >My Songs</NavLink>
-      <NavLink to="/songbook">Songbook</NavLink>
+      <NavLink id="my-songs" to="/mysongs" >My Songs</NavLink>
+      <NavLink id="song-book" to="/songbook"> Songbook</NavLink>
     </nav>
   )
 }

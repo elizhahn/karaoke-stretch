@@ -12,16 +12,21 @@ describe('CarryOkay', () => {
     });
 
     it('should contain Navigation links', () => {
-      cy.get('a').contains("My Songs");
-      cy.get('a').contains("Song Book");
+      cy.get('a[id="my-songs"]').contains("My Songs");
+      cy.get('a[id="song-book"]').contains("Songbook");
     });
-    
+
   });
 
   describe('Navigation', () => {
 
+    //GET REQUEST stub / intercept here
 
+    beforeEach(() => {
+      cy.visit('http://localhost:3000');
+    });
 
+  
 
 
 
@@ -36,7 +41,7 @@ describe('CarryOkay', () => {
 
   });
 
-  describ('Song Book', () => {
+  describe('Song Book', () => {
 
 
 
