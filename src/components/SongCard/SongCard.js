@@ -16,7 +16,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong }) => {
         { listItems }
       </ul>
       <img src={ album_cover }/>
-      <button onClick={() => handleSong(id)}>Add</button>
+      <button id={id} onClick={() => handleSong(id)}>Add</button>
     </div>
   );
 };
