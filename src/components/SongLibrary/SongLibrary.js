@@ -5,9 +5,8 @@ import '../SongLibrary/SongLibrary.css'
 const SongLibrary = ({ songs }) => {
   const allSongs = songs.map(song => {
     return (
-      <SongCard 
-      className="song-card"
-      title={ song.title }
+      <SongCard
+      song_title={ song.song_title }
       artist={ song.artist }
       genres={ song.genres }
       album_cover={ song.album_cover }
