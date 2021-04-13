@@ -102,7 +102,7 @@ describe('CarryOkay', () => {
       cy.get('a[id="song-book"]').click();
     });
 
-    it.only('should display Song Book page components', () => {
+    it('should display Song Book page components', () => {
       cy.get('h1').contains('Song Book');
       cy.get('form').should('exist');
       //Test for search bar button
@@ -134,6 +134,36 @@ describe('CarryOkay', () => {
 
     it('should display a helpful message if search yields no results', () => {
       expect(true).to.equal(false);
+    });
+
+  });
+
+  describe('User Data Manipulation', () => {
+
+    beforeEach(() => {
+      cy.get('a[id="song-book"]').click();
+      cy.get('button[id="1"]').click();
+      cy.get('a[id="my-songs"]').click();
+    });
+
+    it('should allow a user to add a song to their library', () => {
+      cy.get('div[class="song-card"]').contains("Radiohead");
+      cy.get('div[class="song-card"]').contains("electronica");
+      cy.get('div[class="song-card"]').contains("alternative rock");
+      cy.get('img').should('exist');
+      cy.get('button[id="1"]').should('not.exist');
+    });
+
+    //This test checks to see if the "add" button disappears after user clicks it
+    it('should not allow user to add duplicate songs to user library', () => {
+      cy.get('a[id="song-book"]').click();
+      cy.get('button[id="1"]').should('not.exist');
+    });
+
+    it('should allow a user to remove a song from their library', () => {
+      // cy.get('remove button').click();
+      // cy.get("Radiohead").should('not.exist');
+      cy.expect(true).to.equal(false);
     });
 
   });
