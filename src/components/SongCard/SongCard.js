@@ -20,7 +20,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
           { listItems }
         </ul>
       </article>
-      <button id={id} onClick={() => handleSong(id)}>{buttonIcon}</button>
+      <button className="handle-song-btn" id={id} onClick={() => handleSong(id)}>{buttonIcon}</button>
     </div>
   );
 };

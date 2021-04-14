@@ -45,12 +45,12 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <h1>My Songs</h1>
-          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonIcon={<MdRemoveCircle className="handle-song-btn"/>}/>}
+          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}/>}
           <Navigation class="mysongs-nav" />
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-btn"/>}/>}
+         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
         </Route>
       </div>
