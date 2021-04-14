@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   addSong = (id) => {
-    console.log("test")
    const songToAdd = this.state.songBook.find(song => {
     return song.id === id
     })
@@ -44,13 +43,11 @@ class App extends Component {
           <h1>My Songs</h1>
           {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong}/>}
           <Navigation class="mysongs-nav" />
-          <SongLibrary songs={ this.state.mySongs }/>
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
          {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong}/>}
           <Navigation class="songbook-nav" />
-          <SongLibrary songs={ this.state.songBook }/>
         </Route>
       </div>
     )
