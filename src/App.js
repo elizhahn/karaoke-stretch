@@ -26,12 +26,14 @@ class App extends Component {
     this.setState({mySongs: [...this.state.mySongs, songToAdd]})
   }
 
-  removeSong = () => {
-
+  removeSong = (id) => {
+    const editedSongList = this.state.mySongs.filter(song => {
+      return song.id !== id
+    })
+    this.setState({mySongs: editedSongList})
   }
 
   render () {
-    console.log(this.state)
     return (
       <div className="App">
         <Route exact path="/">
@@ -41,12 +43,12 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <h1>My Songs</h1>
-          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong}/>}
+          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonText={'REMOVE'}/>}
           <Navigation class="mysongs-nav" />
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong}/>}
+         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonText={'ADD'}/>}
           <Navigation class="songbook-nav" />
         </Route>
       </div>

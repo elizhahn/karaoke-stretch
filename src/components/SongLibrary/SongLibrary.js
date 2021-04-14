@@ -3,7 +3,6 @@ import SongCard from '../SongCard/SongCard';
 import '../SongLibrary/SongLibrary.css'
 
 const SongLibrary = ({ songs, handleSong }) => {
-  console.log(songs)
   const allSongs = songs.map(song => {
     return (
       <SongCard 
@@ -17,7 +16,6 @@ const SongLibrary = ({ songs, handleSong }) => {
       />
     );
   });
-  console.log(allSongs)
   return (
     <div className='library'>
       {allSongs}
