@@ -1,11 +1,12 @@
 import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 import SongCard from '../SongCard/SongCard';
 import '../SongLibrary/SongLibrary.css'
 
 const SongLibrary = ({ songs, handleSong }) => {
   const allSongs = songs.map(song => {
     return (
-      <SongCard 
+      <SongCard
       key={song.id}
       id={song.id}
       title={ song.title }
@@ -19,6 +20,7 @@ const SongLibrary = ({ songs, handleSong }) => {
 
   return (
     <div className='library'>
+      <SearchBar />
       {allSongs}
     </div>
   );
