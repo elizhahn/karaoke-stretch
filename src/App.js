@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import './App.css';
 import songData from './song-data'
+import { RiHeartAddLine } from 'react-icons/ri'
+import { MdRemoveCircle } from 'react-icons/md'
 
 
 class App extends Component {
@@ -20,19 +22,20 @@ class App extends Component {
   }
 
   addSong = (id) => {
-    console.log("test")
    const songToAdd = this.state.songBook.find(song => {
     return song.id === id
     })
     this.setState({mySongs: [...this.state.mySongs, songToAdd]})
   }
 
-  removeSong = () => {
-
+  removeSong = (id) => {
+    const editedSongList = this.state.mySongs.filter(song => {
+      return song.id !== id
+    })
+    this.setState({mySongs: editedSongList})
   }
 
   render () {
-    console.log(this.state)
     return (
       <div className="App">
         <Route exact path="/">
@@ -42,15 +45,13 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <h1>My Songs</h1>
-          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong}/>}
+          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}/>}
           <Navigation class="mysongs-nav" />
-          <SongLibrary songs={ this.state.mySongs }/>
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong}/>}
+         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
-          <SongLibrary songs={ this.state.songBook }/>
         </Route>
       </div>
     )

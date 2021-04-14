@@ -1,7 +1,7 @@
 .song-card {
   border: 2px solid black;
   display: grid;
-  position: relative;
+  /* position: relative; */
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
 }
@@ -28,8 +28,19 @@
   width: 100%;
 }
 
-.add-btn {
+/* don't see where this is getting applied? */
+/* .add-btn {
   position: absolute;
   right: 5px;
   top: 50%;
+} */
+
+.handle-song-btn {
+  margin: 0 auto; 
+  width:20%; 
+  height: 45px; 
+  display: inline; 
+  background: none;
+  cursor: pointer;
+  border: none;
 }
