@@ -3,7 +3,8 @@ import { Route, NavLink } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import './App.css';
-import songData from "./song-data";
+import songData from './song-data'
+
 
 class App extends Component {
   constructor() {
@@ -33,21 +34,23 @@ class App extends Component {
   render () {
     console.log(this.state)
     return (
-      <div className="app">
+      <div className="App">
         <Route exact path="/">
           <h1>CarryOkay</h1>
           <p>Hello friend 😬</p>
           <Navigation class="home-nav" />
         </Route>
         <Route path="/mysongs">
-          <p>Made it to mysongs</p>
+          <h1>My Songs</h1>
           {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong}/>}
           <Navigation class="mysongs-nav" />
+          <SongLibrary songs={ this.state.mySongs }/>
         </Route>
         <Route path="/songbook">
-          <p>Made it to songbook</p>
+          <h1>SongBook</h1>
          {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong}/>}
           <Navigation class="songbook-nav" />
+          <SongLibrary songs={ this.state.songBook }/>
         </Route>
       </div>
     )

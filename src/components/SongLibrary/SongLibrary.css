@@ -1,0 +1,19 @@
+.library {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax( 260px, 1fr));
+  grid-template-rows: auto;
+  gap: 10px;
+  justify-items: stretch;
+  align-items: stretch
+}
+
+.library > * {
+  grid-column: span 1;
+}
+
+@media (max-width: 1025px) {
+  .library {
+    grid-template-columns: minmax(260px, 1fr);
+  }
+}

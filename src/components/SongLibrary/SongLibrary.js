@@ -1,5 +1,6 @@
 import React from 'react';
 import SongCard from '../SongCard/SongCard';
+import '../SongLibrary/SongLibrary.css'
 
 const SongLibrary = ({ songs, handleSong }) => {
   const allSongs = songs.map(song => {
