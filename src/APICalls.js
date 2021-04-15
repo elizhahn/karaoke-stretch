@@ -14,7 +14,7 @@ const checkForErrors = response => {
 
 
 export const fetchAllSongs = () => {
-  return fetch('https://carryokay-server.herokuapp.com/songs')
+  return fetch('https://localhost:8080/songs')
     .then(checkForErrors)
     .then(data => {
       return data
