@@ -20,8 +20,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({songBook: [...this.state.songBook, ...songData]})
-    this.setState({renderedSongs: [...this.state.songBook, ...songData]})
+    fetch('https://carryokay-server.herokuapp.com/songs')
+      .then(response => Promise.resolve(response.json()))
+      .then(data => {
+        this.setState({ songBook: data })
+        this.setState({renderedSongs: [...this.state.songBook]})
+      })
   }
 
   addSong = (id) => {
