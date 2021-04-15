@@ -15,7 +15,6 @@ class App extends Component {
     super();
     this.state = {
       songBook: [],
-      // renderedSongs: [],
       mySongs: []
     }
   }
@@ -42,15 +41,6 @@ class App extends Component {
     })
     this.setState({mySongs: editedSongList})
   }
-
-  // searchForSongs = (searchQuery) => {
-  //   let modifiedSearchQuery = searchQuery.toUpperCase();
-  //   let matchingSongs = this.state.songBook.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
-  //   // || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
-  //   || song.artist.toUpperCase().includes(modifiedSearchQuery)
-  //   )
-  //   this.setState({ renderedSongs: matchingSongs })
-  // }
 
   render () {
     console.log(this.state)
