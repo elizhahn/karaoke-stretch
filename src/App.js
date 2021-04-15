@@ -37,11 +37,12 @@ class App extends Component {
   }
 
   searchForSongs = (searchQuery) => {
-    console.log(searchQuery)
-  
+    let matchingSongs = this.state.songBook.filter(song => song.title.toUpperCase().includes(searchQuery.toUpperCase()))
+    this.setState({ songBook: matchingSongs })
   }
 
   render () {
+    console.log(this.state.songBook)
     return (
       <div className="App">
         <Route exact path="/">
