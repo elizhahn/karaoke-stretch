@@ -14,7 +14,7 @@ class SearchBar extends Component {
   }
 
   clearInputs = () => {
-    this.setState({ searchInput: ''});
+    this.setState({ searchInput: '' });
   }
 
   search = (event) => {
