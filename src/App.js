@@ -4,9 +4,10 @@ import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import songData from './song-data'
-import { RiHeartAddLine } from 'react-icons/ri'
-import { MdRemoveCircle } from 'react-icons/md'
+import { fetchAllSongs, fetchAllGenres, fetchSongData } from './APICalls';
+import songData from './song-data';
+import { RiHeartAddLine } from 'react-icons/ri';
+import { MdRemoveCircle } from 'react-icons/md';
 
 
 class App extends Component {
@@ -20,8 +21,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://carryokay-server.herokuapp.com/songs')
-      .then(response => Promise.resolve(response.json()))
+    fetchAllSongs()
+      .then(data => Promise.all(data))
       .then(data => {
         this.setState({ songBook: data })
         this.setState({renderedSongs: [...this.state.songBook]})
