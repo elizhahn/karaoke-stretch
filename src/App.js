@@ -39,9 +39,11 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path="/">
-          <h1>CarryOkay</h1>
-          <p>Hello friend 😬</p>
-          <Navigation class="home-nav" />
+          <section className="home-container"> 
+            <h1 className="home-title">CarryOkay</h1>
+            <p>Hello friend 😬</p>
+            <Navigation class="home-nav" />
+          </section>
         </Route>
         <Route path="/mysongs">
           <h1>My Songs</h1>

@@ -1,0 +1,39 @@
+.home-nav {
+  display: flex; 
+  /* justify-content: center;
+  align-items: center;  */
+  height: 300px;
+  width: 300px;
+  background-image: url("../../assets/francesco-de-tommaso-gskWuDulJn8-unsplash.jpg");
+  background-size: cover; 
+  border-radius: 50%;
+}
+
+.home-link {
+ text-decoration: none; 
+ color: rgb(255, 255, 255); 
+}
+
+
+.home-btns {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100%;
+  flex: 1; 
+  opacity: 0.5; 
+     
+}
+
+.home-my-songs { 
+  border-radius: 147px 0 0 147px; 
+  border-top-left-radius: 147px;
+  border-bottom-left-radius: 147px; 
+  background-color: rgb(139, 11, 107); 
+}
+
+.home-song-book {
+  border-radius: 0 147px 147px 0; 
+  background-color: rgb(16, 16, 121);
+  
+}
