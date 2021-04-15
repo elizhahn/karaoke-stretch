@@ -37,3 +37,12 @@
     transform: rotate(360deg);
   }
 }
+
+.handle-song-icon {
+  width: 90%;
+  height: 90%;  
+}
+
+.handle-song-icon:hover {
+  color: rgb(164, 12, 103);
+}
