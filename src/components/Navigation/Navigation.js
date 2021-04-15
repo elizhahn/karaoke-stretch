@@ -5,8 +5,13 @@ import './Navigation.scss'
 const Navigation = (props) => {
   return (
     <nav className= { props.class } >
-      <NavLink id="my-songs" to="/mysongs" >My Songs</NavLink>
-      <NavLink id="song-book" to="/songbook"> Songbook</NavLink>
+      <div className="home-btns home-my-songs">
+        <NavLink className="home-link" id="my-songs" to="/mysongs" >My Songs</NavLink>
+      </div>
+      <div className="letter-k"></div>
+      <div className="home-btns home-song-book">
+        <NavLink className=" home-link" id="song-book" to="/songbook"> Songbook</NavLink>
+      </div>
     </nav>
   )
 }
