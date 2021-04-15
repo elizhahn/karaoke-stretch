@@ -2,7 +2,7 @@ import React from 'react';
 import '../SongCard/SongCard.css'
 
 
-const SongCard = ({ id, title, artist, genres, album_cover, handleSong }) => {
+const SongCard = ({ id, song_title, artist, genres, album_cover, handleSong }) => {
   const listItems = genres.map(genre => {
     return (
       <li className="genre">{ genre }</li>
