@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchBar from '../SearchBar/SearchBar';
 import SongCard from '../SongCard/SongCard';
 import '../SongLibrary/SongLibrary.css'
 
@@ -20,7 +19,6 @@ const SongLibrary = ({ songs, handleSong, buttonIcon }) => {
   });
   return (
     <div className='library'>
-      <SearchBar />
       {allSongs}
     </div>
   );

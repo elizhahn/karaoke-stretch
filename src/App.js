@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
+import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
 import songData from './song-data'
 import { RiHeartAddLine } from 'react-icons/ri'
@@ -50,6 +51,7 @@ class App extends Component {
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
+          <SearchBar />
          {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
         </Route>
