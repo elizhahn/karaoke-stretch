@@ -13,9 +13,14 @@ class SearchBar extends Component {
     this.setState({ [event.target.name]: event.target.value})
   }
 
+  clearInputs = () => {
+    this.setState({ searchInput: ''});
+  }
+
   search = (event) => {
     event.preventDefault();
-    this.props.searchForSongs(this.state.searchInput)
+    this.props.searchForSongs(this.state.searchInput);
+    this.clearInputs();
   }
 
   render () {
