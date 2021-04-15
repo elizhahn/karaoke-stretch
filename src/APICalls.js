@@ -21,10 +21,10 @@ export const fetchAllSongs = () => {
     })
 }
 
-// export const fetchAllGenres = () => {
-//   return fetch('https://carryokay-server.herokuapp.com/genres')
-//     .then(checkForErrors)
-//     .then(data => {
-//       return data
-//     })
-// }
+export const fetchAllGenres = () => {
+  return fetch('http://localhost:8080/genres')
+    .then(checkForErrors)
+    .then(data => {
+      return data
+    })
+}

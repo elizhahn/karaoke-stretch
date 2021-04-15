@@ -4,7 +4,7 @@ import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import { fetchAllSongs, fetchAllGenres, fetchSongData } from './APICalls';
+import { fetchAllSongs, fetchAllGenres } from './APICalls';
 import songData from './song-data';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
@@ -27,8 +27,7 @@ class App extends Component {
         return data
       })
 
-      const genreData = fetch('http://localhost:8080/genres')
-      .then(response => response.json())
+    const genreData = fetchAllGenres()
       .then(data => {
         return data
       })
@@ -52,25 +51,24 @@ class App extends Component {
           accu[i].genres = foundGenres.map(genre => genre[0]);
           return accu;
         }, []);
+
         this.setState({ songBook: modifiedData });
-        this.setState({renderedSongs: [...this.state.songBook]})
-      })
-
-
+        this.setState({ renderedSongs: [...this.state.songBook] })
+      });
   }
 
   addSong = (id) => {
    const songToAdd = this.state.songBook.find(song => {
     return song.id === id
     })
-    this.setState({mySongs: [...this.state.mySongs, songToAdd]})
+    this.setState({ mySongs: [...this.state.mySongs, songToAdd] })
   }
 
   removeSong = (id) => {
     const editedSongList = this.state.mySongs.filter(song => {
       return song.id !== id
     })
-    this.setState({mySongs: editedSongList})
+    this.setState({ mySongs: editedSongList })
   }
 
   searchForSongs = (searchQuery) => {
