@@ -6,23 +6,12 @@ const checkForErrors = response => {
   }
 }
 
-// export const fetchSongData = () => {
-//   // console.log([...fetchAllSongs(), ...fetchAllGenres()])
-//   // return [...fetchAllSongs(), ...fetchAllGenres()]
-//   console.log(fetchAllGenres())
-// }
+export const fetchAllSongData = () => {
+  return Promise.all([fetchData('songs'), fetchData('genres')])
+  }
 
-
-export const fetchAllSongs = () => {
-  return fetch('http://localhost:8080/songs')
-    .then(checkForErrors)
-    .then(data => {
-      return data
-    })
-}
-
-export const fetchAllGenres = () => {
-  return fetch('http://localhost:8080/genres')
+const fetchData = (path) => {
+  return fetch(`http://localhost:8080/${path}`)
     .then(checkForErrors)
     .then(data => {
       return data

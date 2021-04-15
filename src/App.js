@@ -4,7 +4,7 @@ import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import { fetchAllSongs, fetchAllGenres } from './APICalls';
+import { fetchAllSongs, fetchAllGenres, fetchAllSongData } from './APICalls';
 import songData from './song-data';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
@@ -21,18 +21,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-
-    const songData = fetchAllSongs()
+    fetchAllSongData()
       .then(data => {
-        return data
+        this.modifyData(data[0], data[1])
       })
-
-    const genreData = fetchAllGenres()
-      .then(data => {
-        return data
-      })
-
-      this.modifyData(songData, genreData)
   }
 
   modifyData = (songData, genreData) => {
