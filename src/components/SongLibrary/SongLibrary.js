@@ -5,7 +5,7 @@ import '../SongLibrary/SongLibrary.scss'
 const SongLibrary = ({ songs, handleSong, buttonIcon }) => {
   const allSongs = songs.map(song => {
     return (
-      <SongCard 
+      <SongCard
       key={ song.id }
       id={ song.id }
       title={ song.title }

@@ -13,12 +13,14 @@ class App extends Component {
     super();
     this.state = {
       songBook: [],
+      renderedSongs: [],
       mySongs: []
     }
   }
 
   componentDidMount() {
     this.setState({songBook: [...this.state.songBook, ...songData]})
+    this.setState({renderedSongs: [...this.state.songBook, ...songData]})
   }
 
   addSong = (id) => {
@@ -33,6 +35,15 @@ class App extends Component {
       return song.id !== id
     })
     this.setState({mySongs: editedSongList})
+  }
+
+  searchForSongs = (searchQuery) => {
+    let modifiedSearchQuery = searchQuery.toUpperCase();
+    let matchingSongs = this.state.songBook.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
+    || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
+    || song.artist.toUpperCase().includes(modifiedSearchQuery)
+    )
+    this.setState({ renderedSongs: matchingSongs })
   }
 
   render () {
