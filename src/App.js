@@ -4,9 +4,10 @@ import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
-import songData from './song-data'
-import { RiHeartAddLine } from 'react-icons/ri'
-import { MdRemoveCircle } from 'react-icons/md'
+import { fetchAllSongs, fetchAllGenres, fetchSongData } from './APICalls';
+import songData from './song-data';
+import { RiHeartAddLine } from 'react-icons/ri';
+import { MdRemoveCircle } from 'react-icons/md';
 
 
 class App extends Component {
@@ -20,8 +21,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({songBook: [...this.state.songBook, ...songData]})
-    this.setState({renderedSongs: [...this.state.songBook, ...songData]})
+    fetchAllSongs()
+      .then(data => Promise.all(data))
+      .then(data => {
+        this.setState({ songBook: data })
+        this.setState({renderedSongs: [...this.state.songBook]})
+      })
   }
 
   addSong = (id) => {
@@ -41,7 +46,7 @@ class App extends Component {
   searchForSongs = (searchQuery) => {
     let modifiedSearchQuery = searchQuery.toUpperCase();
     let matchingSongs = this.state.songBook.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
-    || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
+    // || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
     || song.artist.toUpperCase().includes(modifiedSearchQuery)
     )
     this.setState({ renderedSongs: matchingSongs })
