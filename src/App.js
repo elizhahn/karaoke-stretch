@@ -36,6 +36,11 @@ class App extends Component {
     this.setState({mySongs: editedSongList})
   }
 
+  searchForSongs = (searchQuery) => {
+    console.log(searchQuery)
+  
+  }
+
   render () {
     return (
       <div className="App">
@@ -51,7 +56,7 @@ class App extends Component {
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-          <SearchBar />
+          <SearchBar searchForSongs={this.searchForSongs} />
          {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
         </Route>
