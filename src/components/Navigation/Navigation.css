@@ -1,3 +1,9 @@
+.home-nav-container {
+  display: flex; 
+  align-items: center; 
+  height: 100%; 
+}
+
 .home-nav { 
   display: flex; 
   height: 300px;
@@ -7,9 +13,8 @@
   border-radius: 50%;
 }
 
+
 .home-link {
- position: absolute; 
- z-index: 1; 
  text-decoration: none; 
  color: rgb(255, 255, 255); 
  font-size: 1.4em; 
@@ -42,4 +47,10 @@
 
 .home-song-book:hover {
   background-color: rgba(10, 10, 237, 0.5); 
+}
+
+.letter-k {
+  width: 2px;
+  background-color: rgb(0, 0, 0);
+  height: 400px; 
 }

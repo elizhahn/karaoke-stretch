@@ -52,11 +52,11 @@ class App extends Component {
       <div className="App">
         <Route exact path="/">
           <section className="home-container"> 
-            <div className="home">
+          
               <h1 className="home-title">CarryOkay</h1>
               <p>Hello friend 😬</p>
               <Navigation class="home-nav" />
-            </div>
+    
           </section>
         </Route>
         <Route path="/mysongs">
