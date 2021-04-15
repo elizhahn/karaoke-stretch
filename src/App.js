@@ -14,12 +14,14 @@ class App extends Component {
     super();
     this.state = {
       songBook: [],
+      renderedSongs: [],
       mySongs: []
     }
   }
 
   componentDidMount() {
     this.setState({songBook: [...this.state.songBook, ...songData]})
+    this.setState({renderedSongs: [...this.state.songBook, ...songData]})
   }
 
   addSong = (id) => {
@@ -38,11 +40,10 @@ class App extends Component {
 
   searchForSongs = (searchQuery) => {
     let matchingSongs = this.state.songBook.filter(song => song.title.toUpperCase().includes(searchQuery.toUpperCase()))
-    this.setState({ songBook: matchingSongs })
+    this.setState({ renderedSongs: matchingSongs })
   }
 
   render () {
-    console.log(this.state.songBook)
     return (
       <div className="App">
         <Route exact path="/">
@@ -58,7 +59,7 @@ class App extends Component {
         <Route path="/songbook">
           <h1>SongBook</h1>
           <SearchBar searchForSongs={this.searchForSongs} />
-         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
+         {this.state.songBook.length && <SongLibrary songs={ this.state.renderedSongs } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
         </Route>
       </div>
