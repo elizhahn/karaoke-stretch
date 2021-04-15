@@ -28,26 +28,21 @@ class App extends Component {
   }
 
   modifyData = (songData, genreData) => {
-    Promise.all([songData, genreData])
-      .then(values => {
-        const songData = values[0];
-        const genreData = values[1];
+    const modifiedData = songData.reduce((accu, currentSong, i) => {
+        accu.push(currentSong);
 
-        const modifiedData = songData.reduce((accu, currentSong, i) => {
-          accu.push(currentSong);
+        const matchedItem = genreData.find(genreItem => genreItem.song_id === currentSong.id);
+        let arrayGenres = Object.entries(matchedItem);
+        let foundGenres = arrayGenres.filter(item => item.includes(true));
 
-          const matchedItem = genreData.find(genreItem => genreItem.song_id === currentSong.id);
-          let arrayGenres = Object.entries(matchedItem);
-          let foundGenres = arrayGenres.filter(item => item.includes(true));
+        accu[i].genres = foundGenres.map(genre => genre[0]);
+        return accu;
+      }, []);
 
-          accu[i].genres = foundGenres.map(genre => genre[0]);
-          return accu;
-        }, []);
-
-        this.setState({ songBook: modifiedData });
-        this.setState({ renderedSongs: [...this.state.songBook] })
-      });
+      this.setState({ songBook: modifiedData });
+      this.setState({ renderedSongs: [...this.state.songBook] })
   }
+
 
   addSong = (id) => {
    const songToAdd = this.state.songBook.find(song => {
