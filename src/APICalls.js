@@ -16,9 +16,8 @@ const checkForErrors = response => {
 export const fetchAllSongs = () => {
   return fetch('http://localhost:8080/songs')
     .then(checkForErrors)
-    .then(data => {
-      return data
-    })
+    // .then(data => {
+    //   return data
 }
 
 // export const fetchAllGenres = () => {
