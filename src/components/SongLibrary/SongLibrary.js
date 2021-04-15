@@ -1,6 +1,6 @@
 import React from 'react';
 import SongCard from '../SongCard/SongCard';
-import '../SongLibrary/SongLibrary.css'
+import '../SongLibrary/SongLibrary.scss'
 
 const SongLibrary = ({ songs, handleSong, buttonIcon }) => {
   const allSongs = songs.map(song => {
@@ -8,7 +8,7 @@ const SongLibrary = ({ songs, handleSong, buttonIcon }) => {
       <SongCard 
       key={ song.id }
       id={ song.id }
-      title={ song.title_title }
+      title={ song.title }
       artist={ song.artist }
       genres={ song.genres }
       album_cover={ song.album_cover }
