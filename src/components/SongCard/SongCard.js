@@ -3,7 +3,7 @@ import '../SongCard/SongCard.scss'
 
 
 const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIcon }) => {
- 
+
   const listItems = genres.map(genre => {
     return (
       <li className="genre">{ genre }</li>
