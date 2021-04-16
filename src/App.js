@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
-import MySongLibrary from './components/MySongLibrary/MySongLibrary';
+import MySongLibrary from './components/mySongLibrary/MySongLibrary';
 import './App.scss';
 import { fetchAllSongData } from './APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
