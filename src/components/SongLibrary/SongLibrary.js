@@ -51,10 +51,12 @@ class SongLibrary extends Component {
   render() {
     const allSongs = this.createSongCards()
     return (
-      <div className='library'>
+      <>
         <SearchBar searchForSongs={this.searchForSongs} />
-         {allSongs}
-      </div>
+        <div className='library'>
+          {allSongs}
+        </div>
+      </>
     )
   }
 }
