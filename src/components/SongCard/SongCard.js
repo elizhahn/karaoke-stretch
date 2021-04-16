@@ -9,7 +9,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
       <li className="genre">{ genre }</li>
     );
   });
-  console.log(isActive)
+  
   return (
     <div className='song-card'>
       <img src={ album_cover }/>

@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import SongCard from '../SongCard/SongCard';
 
 const MySongLibrary = (props) => {
   const mySongList = props.songs.map(song => {
@@ -10,8 +11,9 @@ const MySongLibrary = (props) => {
       artist={ song.artist }
       genres={ song.genres }
       album_cover={ song.album_cover }
-      handleSong={ this.props.handleSong }
-      buttonIcon={ this.props.buttonIcon }
+      handleSong={ props.handleSong }
+      buttonIcon={ props.buttonIcon }
+      isActive={true}
       />
     );
   })

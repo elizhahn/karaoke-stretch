@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
+import MySongLibrary from './components/MySongLibrary/MySongLibrary';
 import './App.scss';
 import { fetchAllSongData } from './APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
@@ -71,12 +72,11 @@ class App extends Component {
           <h1>My Songs</h1>
           <Navigation class="mysongs-nav" />
           {!!this.state.mySongs.length && 
-          <SongLibrary 
+          <MySongLibrary
           songs={ this.state.mySongs } 
           mySongs={this.state.mySongs }
           handleSong={this.removeSong} 
-          buttonIcon={<MdRemoveCircle 
-          className="handle-song-icon"/>}
+          buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}
           />}
         </Route>
         <Route path="/songbook">
@@ -87,8 +87,7 @@ class App extends Component {
           songs={ this.state.songBook } 
           mySongs={this.state.mySongs}
           handleSong={this.addSong} 
-          buttonIcon={<RiHeartAddLine 
-          className="handle-song-icon"/>}
+          buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}
           />}
         </Route>
       </div>
