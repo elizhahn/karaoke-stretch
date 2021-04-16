@@ -31,16 +31,21 @@ class SongLibrary extends Component {
       songList = this.props.songs
     }
     const allSongs = songList.map(song => {
+      let isActive = true;
+      if(this.props.mySongs.includes(song)) {
+        isActive = false; 
+      } 
       return (
         <SongCard
         key={ song.id }
         id={ song.id }
-        title={ song.title_title }
+        title={ song.title }
         artist={ song.artist }
         genres={ song.genres }
         album_cover={ song.album_cover }
         handleSong={ this.props.handleSong }
         buttonIcon={ this.props.buttonIcon }
+        isActive={isActive}
         />
       );
     });

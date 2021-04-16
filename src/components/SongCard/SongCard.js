@@ -2,7 +2,7 @@ import React from 'react';
 import '../SongCard/SongCard.scss'
 
 
-const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIcon }) => {
+const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive }) => {
 
   const listItems = genres.map(genre => {
     return (
@@ -20,7 +20,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
           { listItems }
         </ul>
       </article>
-      <button className="handle-song-btn" id={id} onClick={() => handleSong(id)}>{ buttonIcon }</button>
+      <button className={"handle-song-btn"} disabled={!isActive} id={id} onClick={() => handleSong(id)}>{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
     </div>
   );
 };
