@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   render () {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className="App">
         <Route exact path="/">
@@ -70,12 +70,26 @@ class App extends Component {
         <Route path="/mysongs">
           <h1>My Songs</h1>
           <Navigation class="mysongs-nav" />
-          {!!this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}/>}
+          {!!this.state.mySongs.length && 
+          <SongLibrary 
+          songs={ this.state.mySongs } 
+          mySongs={this.state.mySongs }
+          handleSong={this.removeSong} 
+          buttonIcon={<MdRemoveCircle 
+          className="handle-song-icon"/>}
+          />}
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
           <Navigation class="songbook-nav" />
-         {!!this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
+          {!!this.state.songBook.length && 
+          <SongLibrary 
+          songs={ this.state.songBook } 
+          mySongs={this.state.mySongs}
+          handleSong={this.addSong} 
+          buttonIcon={<RiHeartAddLine 
+          className="handle-song-icon"/>}
+          />}
         </Route>
       </div>
     )
