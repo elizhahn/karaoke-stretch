@@ -7,6 +7,7 @@ import './App.scss';
 import { fetchAllSongData } from './APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
+import { FaHeart } from 'react-icons/fa';
 
 
 class App extends Component {
@@ -76,7 +77,7 @@ class App extends Component {
           songs={ this.state.mySongs } 
           mySongs={this.state.mySongs }
           handleSong={this.removeSong} 
-          buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}
+          buttonIcon={[<MdRemoveCircle className="handle-song-icon"/>]}
           />}
         </Route>
         <Route path="/songbook">
@@ -87,7 +88,7 @@ class App extends Component {
           songs={ this.state.songBook } 
           mySongs={this.state.mySongs}
           handleSong={this.addSong} 
-          buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}
+          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="handle-song-icon"/>]}
           />}
         </Route>
       </div>

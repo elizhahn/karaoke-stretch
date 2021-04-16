@@ -14,7 +14,7 @@ const MySongLibrary = (props) => {
       album_cover={ song.album_cover }
       handleSong={ props.handleSong }
       buttonIcon={ props.buttonIcon }
-      isActive={true}
+      isActive={ true }
       />
     );
   })
