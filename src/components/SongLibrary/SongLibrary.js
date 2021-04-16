@@ -31,13 +31,10 @@ class SongLibrary extends Component {
       songList = this.props.songs
     }
     const allSongs = songList.map(song => {
-      let isActive;
+      let isActive = true;
       if(this.props.mySongs.includes(song)) {
         isActive = false; 
-      } else {
-        isActive = true; 
-      }
-      
+      } 
       return (
         <SongCard
         key={ song.id }

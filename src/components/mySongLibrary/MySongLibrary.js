@@ -1,5 +1,6 @@
 import React from 'react';
 import SongCard from '../SongCard/SongCard';
+import './MySongLibrary.scss';
 
 const MySongLibrary = (props) => {
   const mySongList = props.songs.map(song => {
@@ -18,7 +19,7 @@ const MySongLibrary = (props) => {
     );
   })
   return (
-    <section>
+    <section className="my-library">
       {mySongList}
     </section>
   )
