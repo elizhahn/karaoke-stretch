@@ -2,14 +2,14 @@ import React from 'react';
 import '../SongCard/SongCard.scss'
 
 
-const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIcon }) => {
+const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive }) => {
 
   const listItems = genres.map(genre => {
     return (
       <li className="genre">{ genre }</li>
     );
   });
-
+  console.log(isActive)
   return (
     <div className='song-card'>
       <img src={ album_cover }/>
@@ -20,7 +20,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
           { listItems }
         </ul>
       </article>
-      <button className="handle-song-btn" id={id} onClick={() => handleSong(id)}>{ buttonIcon }</button>
+      <button className={isActive ? "handle-song-btn" : "hidden" } id={id} onClick={() => handleSong(id)}>{ buttonIcon }</button>
     </div>
   );
 };
