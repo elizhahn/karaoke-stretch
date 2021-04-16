@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
-import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
 import { fetchAllSongData } from './APICalls';
-import songData from './song-data';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
 
@@ -15,7 +13,6 @@ class App extends Component {
     super();
     this.state = {
       songBook: [],
-      renderedSongs: [],
       mySongs: []
     }
   }
@@ -59,16 +56,8 @@ class App extends Component {
     this.setState({ mySongs: editedSongList })
   }
 
-  searchForSongs = (searchQuery) => {
-    let modifiedSearchQuery = searchQuery.toUpperCase();
-    let matchingSongs = this.state.songBook.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
-    || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
-    || song.artist.toUpperCase().includes(modifiedSearchQuery)
-    )
-    this.setState({ renderedSongs: matchingSongs })
-  }
-
   render () {
+    console.log(this.state)
     return (
       <div className="App">
         <Route exact path="/">
@@ -85,8 +74,7 @@ class App extends Component {
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-          <SearchBar searchForSongs={this.searchForSongs} />
-         {this.state.songBook.length && <SongLibrary songs={ this.state.renderedSongs } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
+         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
         </Route>
       </div>

@@ -13,7 +13,6 @@ export const fetchAllSongData = () => {
 const fetchData = (path) => {
   return fetch(`http://localhost:8080/${path}`)
     .then(checkForErrors)
-    .then(data => {
-      return data
-    })
+    // .then(data => {
+    //   return data
 }
