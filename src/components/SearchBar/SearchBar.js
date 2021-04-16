@@ -23,7 +23,13 @@ class SearchBar extends Component {
     this.clearInputs();
   }
 
+  clearSearch = (event) => {
+    event.preventDefault();
+    this.props.searchForSongs(''); 
+  }
+
   render () {
+    console.log(this.state)
     return (
       <form>
         <input
@@ -35,6 +41,7 @@ class SearchBar extends Component {
           onChange={ event => this.handleChange(event) }
         />
         <button onClick={ event => this.search(event) }>Search!</button>
+        <button onClick={event => this.clearSearch(event)}>Clear Search</button>
 
       </form>
     )
