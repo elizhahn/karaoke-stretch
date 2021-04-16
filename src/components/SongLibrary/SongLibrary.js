@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
 import SongCard from '../SongCard/SongCard';
-import '../SongLibrary/SongLibrary.css'
 import SearchBar from "../SearchBar/SearchBar";
+import '../SongLibrary/SongLibrary.scss';
 
 
 
@@ -17,7 +17,7 @@ class SongLibrary extends Component {
    searchForSongs = (searchQuery) => {
     let modifiedSearchQuery = searchQuery.toUpperCase();
     let matchingSongs = this.props.songs.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
-    // || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
+    || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
     || song.artist.toUpperCase().includes(modifiedSearchQuery)
     )
     this.setState({ renderedSongs: matchingSongs })
@@ -45,7 +45,6 @@ class SongLibrary extends Component {
       );
     });
    return allSongs
-
   }
 
   render() {

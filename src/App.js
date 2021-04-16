@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
-import './App.css';
+import './App.scss';
 import { fetchAllSongData } from './APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
@@ -69,13 +69,13 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <h1>My Songs</h1>
-          {this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}/>}
           <Navigation class="mysongs-nav" />
+          {!!this.state.mySongs.length && <SongLibrary songs={ this.state.mySongs } handleSong={this.removeSong} buttonIcon={<MdRemoveCircle className="handle-song-icon"/>}/>}
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-         {this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
           <Navigation class="songbook-nav" />
+         {!!this.state.songBook.length && <SongLibrary songs={ this.state.songBook } handleSong={this.addSong} buttonIcon={<RiHeartAddLine className="handle-song-icon"/>}/>}
         </Route>
       </div>
     )

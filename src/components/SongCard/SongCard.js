@@ -1,5 +1,5 @@
 import React from 'react';
-import '../SongCard/SongCard.css'
+import '../SongCard/SongCard.scss'
 
 
 const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIcon }) => {
@@ -16,11 +16,11 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
       <article className="song-details">
         <h2>{ title }</h2>
         <p>Artist: { artist }</p>
-          <ul className="genres">Genres:
-           { listItems }
-          </ul>
+        <ul className="genres">
+          { listItems }
+        </ul>
       </article>
-      <button className="handle-song-btn" id={id} onClick={() => handleSong(id)}>{buttonIcon}</button>
+      <button className="handle-song-btn" id={id} onClick={() => handleSong(id)}>{ buttonIcon }</button>
     </div>
   );
 };
