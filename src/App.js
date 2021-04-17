@@ -22,6 +22,7 @@ class App extends Component {
   componentDidMount() {
     fetchAllSongData()
       .then(data => {
+        console.log(data)
         const [songs, genres] = data;
         this.modifyData(songs, genres);
       })
@@ -70,7 +71,7 @@ class App extends Component {
           </section>
         </Route>
         <Route path="/mysongs">
-          <h1>My Songs</h1>
+          <h1 data-cy="my-songs-title">My Songs</h1>
           <Navigation class="mysongs-nav" />
           {!!this.state.mySongs.length && 
           <MySongLibrary
@@ -81,14 +82,14 @@ class App extends Component {
           />}
         </Route>
         <Route path="/songbook">
-          <h1>SongBook</h1>
+          <h1 data-cy="song-book-title">Song Book</h1>
           <Navigation class="songbook-nav" />
           {!!this.state.songBook.length && 
           <SongLibrary 
           songs={ this.state.songBook } 
           mySongs={this.state.mySongs}
           handleSong={this.addSong} 
-          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon"/>]}
+          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>]}
           />}
         </Route>
       </div>
