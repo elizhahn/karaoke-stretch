@@ -11,9 +11,9 @@ describe('CarryOkay', () => {
       cy.get('p').contains("Hello friend 😬");
     });
 
-    it('should contain Navigation links', () => {
-      cy.get('a[id="my-songs"]').contains("My Songs");
-      cy.get('a[id="song-book"]').contains("Songbook");
+    it.only('should contain Navigation links', () => {
+      cy.get('[data-cy=my-songs]').contains("My Songs");
+      cy.get('[data-cy=song-book]').contains("Song Book");
     });
 
   });
