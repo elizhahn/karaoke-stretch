@@ -2,9 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Navigation.scss'
 
-const Navigation = (props) => {
+const Navigation = ({ dynamic }) => {
+ 
   return (
-    <nav className= { props.class } >
+    <nav className= { dynamic } >
       <div className="home-btns home-my-songs">
         <NavLink activeClassName="mysongs-active"  className="home-link" id="my-songs" to="/mysongs">My Songs</NavLink>
       </div>
