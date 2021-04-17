@@ -50,8 +50,7 @@ class App extends Component {
         return accu;
       }, []);
 
-      this.setState({ songBook: modifiedData });
-      this.setState({ renderedSongs: [...this.state.songBook] })
+      this.setState({ songBook: modifiedData, renderedSongs: [...this.state.songBook] });
   }
 
 
@@ -82,7 +81,7 @@ class App extends Component {
         <Route path="/mysongs">
           <h1 data-cy="my-songs-title">My Songs</h1>
           <Navigation dynamic="off-home-nav" />
-          {!!this.state.mySongs.length && 
+          {!!this.state.mySongs.length &&
           <MySongLibrary
           songs={ this.state.mySongs }
           mySongs={this.state.mySongs }
@@ -95,11 +94,12 @@ class App extends Component {
         <Route path="/songbook">
           <h1 data-cy="song-book-title">Song Book</h1>
           <Navigation dynamic="off-home-nav" />
-          {!!this.state.songBook.length && 
-          <SongLibrary 
-          songs={ this.state.songBook } 
+          {!!this.state.songBook.length &&
+          <SongLibrary
+          songs={ this.state.songBook }
           mySongs={this.state.mySongs}
-          handleSong={this.addSong} 
+          handleSong={this.addSong}
+
           buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>]}
           />}
           {this.state.error &&
