@@ -71,7 +71,7 @@ class App extends Component {
           </section>
         </Route>
         <Route path="/mysongs">
-          <h1>My Songs</h1>
+          <h1 data-cy="my-songs-title">My Songs</h1>
           <Navigation class="mysongs-nav" />
           {!!this.state.mySongs.length && 
           <MySongLibrary
@@ -82,7 +82,7 @@ class App extends Component {
           />}
         </Route>
         <Route path="/songbook">
-          <h1>SongBook</h1>
+          <h1 data-cy="song-book-title">Song Book</h1>
           <Navigation class="songbook-nav" />
           {!!this.state.songBook.length && 
           <SongLibrary 
