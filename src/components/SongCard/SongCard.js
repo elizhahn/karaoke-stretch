@@ -6,7 +6,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
 
   const listItems = genres.map(genre => {
     return (
-      <li className="genre">{ genre }</li>
+      <li className="genre" key={ `${title}-${genre}` } >{ genre }</li>
     );
   });
 
