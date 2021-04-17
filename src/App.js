@@ -70,7 +70,7 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <h1>My Songs</h1>
-          <Navigation dynamic="mysongs-nav" />
+          <Navigation dynamic="off-home-nav" />
           {!!this.state.mySongs.length && 
           <MySongLibrary
           songs={ this.state.mySongs } 
@@ -81,7 +81,7 @@ class App extends Component {
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
-          <Navigation dynamic="songbook-nav" />
+          <Navigation dynamic="off-home-nav" />
           {!!this.state.songBook.length && 
           <SongLibrary 
           songs={ this.state.songBook } 
