@@ -14,7 +14,7 @@ class SongLibrary extends Component {
     }
   }
 
-   searchForSongs = (searchQuery) => {
+  searchForSongs = (searchQuery) => {
     let modifiedSearchQuery = searchQuery.toUpperCase();
     let matchingSongs = this.props.songs.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
     || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
