@@ -7,7 +7,7 @@ const Lyrics = (props) => {
   return ReactDOM.createPortal(
     (<div className="modal-overlay">
     <section className="modal-content">
-     <p classname="lyrics">{props.lyrics}</p>
+     <p className="lyrics">{props.lyrics}</p>
      <button onClick={props.closeLyrics}>Close</button>
     </section>
     </div>
