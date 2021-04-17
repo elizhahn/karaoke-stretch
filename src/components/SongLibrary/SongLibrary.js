@@ -8,24 +8,31 @@ import '../SongLibrary/SongLibrary.scss';
 class SongLibrary extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
-      renderedSongs: []    
+    this.state = {
+      renderedSongs: [],
+      searchResultsMsg: ""
     }
   }
 
- 
    searchForSongs = (searchQuery) => {
     let modifiedSearchQuery = searchQuery.toUpperCase();
     let matchingSongs = this.props.songs.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
     || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
     || song.artist.toUpperCase().includes(modifiedSearchQuery)
     )
-    this.setState({ renderedSongs: matchingSongs })
+    console.log(matchingSongs)
+    if(matchingSongs != "") {
+      this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}'':` })
+      this.setState({ renderedSongs: matchingSongs })
+    } else {
+      this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)" })
+      this.setState({ renderedSongs: [] })
+    }
   }
 
   createSongCards = () => {
-    let songList; 
-    if( this.state.renderedSongs.length) {
+    let songList;
+    if(this.state.searchResultsMsg) {
       songList = this.state.renderedSongs
     } else {
       songList = this.props.songs
@@ -33,8 +40,8 @@ class SongLibrary extends Component {
     const allSongs = songList.map(song => {
       let isActive = true;
       if(this.props.mySongs.includes(song)) {
-        isActive = false; 
-      } 
+        isActive = false;
+      }
       return (
         <SongCard
         key={ song.id }
@@ -57,6 +64,7 @@ class SongLibrary extends Component {
     return (
       <>
         <SearchBar searchForSongs={this.searchForSongs} />
+        <h2>{this.state.searchResultsMsg}</h2>
         <div className='library'>
           {allSongs}
         </div>
