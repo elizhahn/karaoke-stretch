@@ -23,6 +23,7 @@ class App extends Component {
   componentDidMount() {
     fetchAllSongData()
       .then(data => {
+        console.log(data)
         const [songs, genres] = data;
         this.modifyData(songs, genres);
       })
@@ -75,12 +76,12 @@ class App extends Component {
           <section className="home-container">
             <h1 className="home-title">CarryOkay</h1>
             <p className="home-greeting">Hello friend 😬</p>
-            <Navigation class="home-nav" />
+            <Navigation dynamic="home-nav" />
           </section>
         </Route>
         <Route path="/mysongs">
-          <h1>My Songs</h1>
-          <Navigation class="mysongs-nav" />
+          <h1 data-cy="my-songs-title">My Songs</h1>
+          <Navigation dynamic="off-home-nav" />
           {!!this.state.mySongs.length &&
           <MySongLibrary
           songs={ this.state.mySongs }
@@ -92,14 +93,14 @@ class App extends Component {
           <h2>{this.state.error}</h2>}
         </Route>
         <Route path="/songbook">
-          <h1>SongBook</h1>
-          <Navigation class="songbook-nav" />
+          <h1 data-cy="song-book-title">Song Book</h1>
+          <Navigation dynamic="off-home-nav" />
           {!!this.state.songBook.length &&
           <SongLibrary
           songs={ this.state.songBook }
           mySongs={this.state.mySongs}
           handleSong={this.addSong}
-          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon"/>]}
+          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>]}
           />}
           {this.state.error &&
           <h2>{this.state.error}</h2>}
