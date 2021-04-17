@@ -1,5 +1,6 @@
 import { React, Component } from 'react';
-import '../SongCard/SongCard.scss'
+import '../SongCard/SongCard.scss';
+import Lyric from '../Lyric/Lyric';
 
 
 class SongCard extends Component {
@@ -21,6 +22,10 @@ getLyrics = (artist, songtitle) => {
   .catch(error => this.setState({error: error.message}))
 }
 
+closeLyrics = () => {
+  this.setState({lyrics: {}})
+}
+
 render() {
   const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props
   const listItems = genres.map(genre => {
@@ -40,6 +45,7 @@ render() {
       </article>
       <button className={"handle-song-btn"} disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
       <button onClick={() => this.getLyrics(artist, title)}>Get Lyrics</button>
+      {Object.keys(this.state.lyrics).length && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics}/>}
     </div>
   );
  };
