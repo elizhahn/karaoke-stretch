@@ -10,7 +10,7 @@ class SearchBar extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value})
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   clearInputs = () => {
@@ -25,7 +25,7 @@ class SearchBar extends Component {
 
   clearSearch = (event) => {
     event.preventDefault();
-    this.props.searchForSongs(''); 
+    this.props.searchForSongs('');
   }
 
   render () {
@@ -41,8 +41,7 @@ class SearchBar extends Component {
           data-cy="search-bar"
         />
         <button onClick={ event => this.search(event) } data-cy="search-btn">Search!</button>
-        <button onClick={event => this.clearSearch(event)}>Clear Search</button>
-
+        <button onClick={ event => this.clearSearch(event) }>Clear Search</button>
       </form>
     )
   }
