@@ -11,7 +11,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
   });
 
   return (
-    <div className='song-card'>
+      <div className='song-card' data-cy="song-card">
       <img src={ album_cover } alt={ `${title} by ${artist} album cover art` }/>
       <article className="song-details">
         <h2>{ title }</h2>
@@ -20,7 +20,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
           { listItems }
         </ul>
       </article>
-      <button className={"handle-song-btn"} disabled={!isActive} id={id} onClick={() => handleSong(id)}>{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
+      <button className={"handle-song-btn"} disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
     </div>
   );
 };
