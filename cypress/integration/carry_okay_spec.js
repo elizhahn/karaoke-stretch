@@ -73,7 +73,7 @@ describe('CarryOkay', () => {
     it('should display My Song page components', () => {
       cy.get('[data-cy=my-songs-title]').contains("My Songs");
       cy.get('[data-cy=my-songs-nav]').contains("My Songs");
-      cy.get('[data-cy=song-book-nav]').contains("Songbook");
+      cy.get('[data-cy=song-book-nav]').contains("Song Book");
     });
 
     it(`should display list of user's songs`, () => {
@@ -146,7 +146,7 @@ describe('CarryOkay', () => {
         .and("contain","Rock")
   });
 
-  it.only('should not allow user to add duplicate songs to user library', () => {
+  it('should not allow user to add duplicate songs to user library', () => {
     cy.get('[data-cy=song-card-btn]').first().click();
     cy.get('[data-cy=song-card-btn]').first().should('be.disabled');
     //not sure how to test for a specific heart icon here..
