@@ -21,12 +21,10 @@ class SongLibrary extends Component {
     || song.artist.toUpperCase().includes(modifiedSearchQuery)
     )
 
-    if(matchingSongs !== "") {
-      this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}'':` })
-      this.setState({ renderedSongs: matchingSongs })
+    if(matchingSongs != "") {
+      this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}'':`, renderedSongs: matchingSongs })
     } else {
-      this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)" })
-      this.setState({ renderedSongs: [] })
+      this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)", renderedSongs: [] })
     }
   }
 

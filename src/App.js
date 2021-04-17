@@ -50,8 +50,7 @@ class App extends Component {
         return accu;
       }, []);
 
-      this.setState({ songBook: modifiedData });
-      this.setState({ renderedSongs: [...this.state.songBook] })
+      this.setState({ songBook: modifiedData, renderedSongs: [...this.state.songBook] });
   }
 
 
