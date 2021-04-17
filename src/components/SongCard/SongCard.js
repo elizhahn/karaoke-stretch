@@ -1,32 +1,31 @@
 import { React, Component } from 'react';
 import '../SongCard/SongCard.scss';
 import Lyric from '../Lyric/Lyric';
-
+import { fetchLyrics } from "../../APICalls";
 
 class SongCard extends Component {
   constructor(props) {
   super(props)
   this.state = {
-    lyrics: {}
+    lyrics: {},
+    error: ''
   }
 }
 
 getLyrics = (artist, songtitle) => {
-  console.log('test')
-  fetch(`https://api.lyrics.ovh/v1/${artist}/${songtitle}`)
-  .then(response => response.json())
+  fetchLyrics(artist, songtitle)
   .then(data => {
-    console.log(data)
     this.setState({lyrics: data.lyrics})
   })
-  .catch(error => this.setState({error: error.message}))
+  .catch(error => this.setState({error: "We weren't able to get you those lyrics at this time"}))
 }
 
 closeLyrics = () => {
-  this.setState({lyrics: {}})
+  this.setState({lyrics: {}, error: ''})
 }
 
 render() {
+  console.log(this.state)
   const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props
   const listItems = genres.map(genre => {
     return (
@@ -45,7 +44,8 @@ render() {
       </article>
       <button className={"handle-song-btn"} disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
       <button onClick={() => this.getLyrics(artist, title)}>Get Lyrics</button>
-      {Object.keys(this.state.lyrics).length && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics}/>}
+      {!!Object.keys(this.state.lyrics).length && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
+      {this.state.error && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
     </div>
   );
  };
