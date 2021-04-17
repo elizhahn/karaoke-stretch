@@ -30,7 +30,7 @@ class SearchBar extends Component {
 
   render () {
     return (
-      <form data-cy="search-bar">
+      <form data-cy="search-form">
         <input
           className='search-bar'
           type='text'
@@ -38,8 +38,9 @@ class SearchBar extends Component {
           name='searchInput'
           value={ this.state.searchInput }
           onChange={ event => this.handleChange(event) }
+          data-cy="search-bar"
         />
-        <button onClick={ event => this.search(event) }>Search!</button>
+        <button onClick={ event => this.search(event) } data-cy="search-btn">Search!</button>
         <button onClick={event => this.clearSearch(event)}>Clear Search</button>
 
       </form>

@@ -81,9 +81,9 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-card-btn]').first().click();
       cy.get('[data-cy=my-songs-nav]').click();
       cy.get('[data-cy=song-card]').should("contain", "Jigsaw falling into place")
-      .and("contain", "Radiohead")
-      .and("contain","Electronica")
-      .and("contain","Rock")
+        .and("contain", "Radiohead")
+        .and("contain","Electronica")
+        .and("contain","Rock")
       cy.get('[data-cy=album-img]').should('exist');
       cy.get('[data-cy=song-card-btn]').should('exist');
     });
@@ -93,9 +93,9 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-card-btn]').eq(1).click();
       cy.get('[data-cy=my-songs-nav]').click();
       cy.get('[data-cy=song-card]').should("contain", "My Boo")
-      .and("contain", "Usher")
-      .and("contain","Hip Hop")
-      .and("contain","R&B")
+        .and("contain", "Usher")
+        .and("contain","Hip Hop")
+        .and("contain","R&B")
       cy.get('[data-cy=song-card-btn]').click();
       cy.get('[data-cy=song-card]').should('not.exist');
     });
@@ -111,24 +111,28 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-book-nav]').click();
      });
 
-    it.only('should display Song Book page components', () => {
+    it('should display Song Book page components', () => {
       cy.get('[data-cy=song-book-title]').contains('Song Book');
       cy.get('[data-cy=my-songs-nav]').contains("My Songs");
       cy.get('[data-cy=song-book-nav]').contains("Song Book");
-      cy.get('[data-cy=search-bar]').should('exist');
+      cy.get('[data-cy=search-form]').should('exist');
       cy.get('[data-cy=song-card]').should("have.length", 2);
       cy.get('[data-cy=song-card]').eq(0).contains("Radiohead");
       cy.get('[data-cy=song-card]').eq(1).contains("Usher");
     });
 
-    it('should allow user to make a search', () => {
-      expect(true).to.equal(false);
+    it.only('should allow user to make a search', () => {
+      cy.get('[data-cy=search-bar]').type('usher');
+      cy.get('[data-cy=search-btn').click()
+      cy.get('[data-cy=song-card]').should("have.length", 1)
+        .and('contain', 'Usher');
+      cy.get('[data-cy=search-bar]').clear()
+      cy.get('[data-cy=search-bar]').type('body')
+      cy.get('[data-cy=search-btn').click()
+      cy.get('[data-cy=song-card]').should('have.length', 2);
     });
 
-    it('should display relevant search results', () => {
-      expect(true).to.equal(false);
-    });
-
+    //still need this functionality
     it('should display a helpful message if search yields no results', () => {
       expect(true).to.equal(false);
     });
