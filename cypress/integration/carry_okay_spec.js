@@ -1,17 +1,20 @@
 describe('CarryOkay', () => {
 
  beforeEach(() => {
+  // cy.visit('http://localhost:3000');
+  cy.intercept('genres', {fixture:"genre_data.json"})
+  cy.intercept('/songs', {fixture:"song_data.json"})
   cy.visit('http://localhost:3000');
  });
 
   describe('App Load', () => {
 
-    it('should display App title and greeting', () => {
+    it.only('should display App title and greeting', () => {
       cy.get('h1').contains("CarryOkay");
       cy.get('p').contains("Hello friend 😬");
     });
 
-    it.only('should contain Navigation links', () => {
+    it('should contain Navigation links', () => {
       cy.get('[data-cy=my-songs]').contains("My Songs");
       cy.get('[data-cy=song-book]').contains("Song Book");
     });
