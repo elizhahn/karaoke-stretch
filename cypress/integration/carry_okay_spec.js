@@ -14,8 +14,8 @@ describe('CarryOkay', () => {
     });
 
     it('should contain Navigation links', () => {
-      cy.get('[data-cy=my-songs]').contains("My Songs");
-      cy.get('[data-cy=song-book]').contains("Song Book");
+      cy.get('[data-cy=my-songs-nav]').contains("My Songs");
+      cy.get('[data-cy=song-book-nav]').contains("Song Book");
     });
 
   });
@@ -23,14 +23,14 @@ describe('CarryOkay', () => {
   describe('Navigation', () => {
 
     it('should be able to navigate to My Songs view from Home view', () => {
-      cy.get('[data-cy=my-songs]').click();
+      cy.get('[data-cy=my-songs-nav]').click();
       cy.get("CarryOkay").should('not.exist');
       cy.get("Hello friend 😬").should('not.exist');
       cy.url().should("eq", "http://localhost:3000/mysongs")
     });
 
     it('should be able to navigate to Song Book view from Home view', () => {
-      cy.get('[data-cy=song-book]').click();
+      cy.get('[data-cy=song-book-nav]').click();
       cy.get("CarryOkay").should('not.exist');
       cy.get("Hello friend 😬").should('not.exist');
       cy.url().should("eq", "http://localhost:3000/songbook")
@@ -38,61 +38,64 @@ describe('CarryOkay', () => {
 
     //still missing this functionality
     it('should be able to navigate from My Songs view to Home view', () => {
-      cy.get('[data-cy=my-songs]').click();
+      cy.get('[data-cy=my-songs-nav]').click();
       cy.expect(true).to.equal(true);
     });
     
     //still missing this functionality
     it('should be able to navigate from Song Book view to Home view', () => {
-      cy.get('[data-cy=song-book]').click();
+      cy.get('[data-cy=song-book-nav]').click();
       cy.expect(true).to.equal(true);
     });
 
     it('should be able to navigate from My Songs view to Song Book view', () => {
-      cy.get('[data-cy=my-songs]').click();
-      cy.get('[data-cy=song-book]').click();
-      cy.get('[data-cy=song-book-title]').contains("Song Book");
+      cy.get('[data-cy=my-songs-nav]').click();
+      cy.get('[data-cy=song-book-nav]').click();
+      cy.url().should("eq", "http://localhost:3000/songbook")
     });
 
     it('should be able to navigate from Song Book view to My Songs view', () => {
-      cy.get('[data-cy=song-book]').click();
-      cy.get('[data-cy=my-songs]').click();
-      cy.get('[data-cy=my-songs-title]').contains("My Songs");
+      cy.get('[data-cy=song-book-nav]').click();
+      cy.get('[data-cy=my-songs-nav]').click();
+      cy.url().should("eq", "http://localhost:3000/mysongs")
     });
 
   });
 
   describe('My Songs', () => {
-
     beforeEach(() => {
-      cy.get('a[id="my-songs"]').click();
-    });
+      cy.intercept('/genres', {fixture:"genre_data.json"})
+      cy.intercept('/songs', {fixture:"song_data.json"})
+      cy.visit('http://localhost:3000');
+      cy.get('[data-cy=my-songs-nav]').click();
+     });
 
     it('should display My Song page components', () => {
-      cy.get('h1').contains('My Songs');
-      //Check for library component
-      cy.get('a[id="my-songs"]').contains("My Songs");
-      cy.get('a[id="song-book"]').contains("Songbook");
+      cy.get('[data-cy=my-songs-title]').contains("My Songs");
+      cy.get('[data-cy=my-songs-nav]').contains("My Songs");
+      cy.get('[data-cy=song-book-nav]').contains("Songbook");
     });
 
     it(`should display list of user's songs`, () => {
-      cy.get('a[id="song-book"]').click();
-      cy.get('button[id="1"]').click();
-      cy.get('a[id="my-songs"]').click();
-      cy.get('div[class="song-card"]').contains("Radiohead");
-      cy.get('div[class="song-card"]').contains("electronica");
-      cy.get('div[class="song-card"]').contains("alternative rock");
-      cy.get('img').should('exist');
-      cy.get('button[id="1"]').should('not.exist');
+      cy.get('[data-cy=song-book-nav]').click();
+      cy.get('[data-cy=song-card-btn]').first().click();
+      cy.get('[data-cy=my-songs-nav]').click();
+      cy.get('[data-cy=song-card]').should("contain", "Radiohead")
+      .and("contain","Electronica")
+      .and("contain","Rock")
+      cy.get('[data-cy=album-img]').should('exist');
+      cy.get('[data-cy=song-card-btn]').should('exist');
+    });
 
-      cy.get('a[id="song-book"]').click();
-      cy.get('button[id="2"]').click();
-      cy.get('a[id="my-songs"]').click();
-      cy.get('div[class="song-card"]').contains("Usher");
-      cy.get('div[class="song-card"]').contains("pop");
-      cy.get('div[class="song-card"]').contains("R&B");
-      cy.get('img').should('exist');
-      cy.get('button[id="2"]').should('not.exist');
+    it.only('should remove a song from a user\'s list', () => {
+      cy.get('[data-cy=song-book-nav]').click();
+      cy.get('[data-cy=song-card-btn]').eq(1).click();
+      cy.get('[data-cy=my-songs-nav]').click();
+      cy.get('[data-cy=song-card]').should("contain", "Usher")
+      .and("contain","Hip Hop")
+      .and("contain","R&B")
+      cy.get('[data-cy=song-card-btn]').click();
+      cy.get('[data-cy=song-card]').should('not.exist');
     });
 
   });
