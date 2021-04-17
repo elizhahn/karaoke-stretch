@@ -1,4 +1,11 @@
-@import-normalize;
+@import "../node_modules/normalize-scss/sass/normalize";
+
+@import './App.scss',
+'./components/Navigation/Navigation.scss',
+'./components/SearchBar/SearchBar.scss',
+'./components/SongLibrary/SongLibrary.scss',
+'./components/mySongLibrary/MySongLibrary.scss';
+
 
 body {
   margin: 0;
