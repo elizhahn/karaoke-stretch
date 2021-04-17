@@ -60,19 +60,18 @@ class App extends Component {
   }
 
   render () {
-    // console.log(this.state)
     return (
       <div className="App">
         <Route exact path="/">
           <section className="home-container">
             <h1 className="home-title">CarryOkay</h1>
             <p className="home-greeting">Hello friend 😬</p>
-            <Navigation class="home-nav" />
+            <Navigation dynamic="home-nav" />
           </section>
         </Route>
         <Route path="/mysongs">
           <h1 data-cy="my-songs-title">My Songs</h1>
-          <Navigation class="mysongs-nav" />
+          <Navigation dynamic="off-home-nav" />
           {!!this.state.mySongs.length && 
           <MySongLibrary
           songs={ this.state.mySongs } 
@@ -83,7 +82,7 @@ class App extends Component {
         </Route>
         <Route path="/songbook">
           <h1 data-cy="song-book-title">Song Book</h1>
-          <Navigation class="songbook-nav" />
+          <Navigation dynamic="off-home-nav" />
           {!!this.state.songBook.length && 
           <SongLibrary 
           songs={ this.state.songBook } 
