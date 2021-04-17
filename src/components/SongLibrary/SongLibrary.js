@@ -20,8 +20,8 @@ class SongLibrary extends Component {
     || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
     || song.artist.toUpperCase().includes(modifiedSearchQuery)
     )
-    console.log(matchingSongs)
-    if(matchingSongs != "") {
+
+    if(matchingSongs !== "") {
       this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}'':` })
       this.setState({ renderedSongs: matchingSongs })
     } else {

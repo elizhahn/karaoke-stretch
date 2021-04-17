@@ -15,7 +15,8 @@ class App extends Component {
     super();
     this.state = {
       songBook: [],
-      mySongs: []
+      mySongs: [],
+      error: ""
     }
   }
 
@@ -25,6 +26,15 @@ class App extends Component {
         const [songs, genres] = data;
         this.modifyData(songs, genres);
       })
+      .catch(err => this.setState({ error: this.handleError(err) }));
+  }
+
+  handleError = (error) => {
+    if (error < 500) {
+      return "Hmmm, something's not quite right. Care to try again?"
+    } else {
+      return "Oops, our system seems to be down... how embarassing. Try again in a few moments!"
+    }
   }
 
   modifyData = (songData, genreData) => {
@@ -78,6 +88,8 @@ class App extends Component {
           handleSong={this.removeSong}
           buttonIcon={[<MdRemoveCircle className="handle-song-icon"/>]}
           />}
+          {this.state.error &&
+          <h2>{this.state.error}</h2>}
         </Route>
         <Route path="/songbook">
           <h1>SongBook</h1>
@@ -89,6 +101,8 @@ class App extends Component {
           handleSong={this.addSong}
           buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon"/>]}
           />}
+          {this.state.error &&
+          <h2>{this.state.error}</h2>}
         </Route>
       </div>
     )
