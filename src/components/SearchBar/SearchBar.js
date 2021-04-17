@@ -30,7 +30,7 @@ class SearchBar extends Component {
 
   render () {
     return (
-      <form>
+      <form data-cy="search-bar">
         <input
           className='search-bar'
           type='text'

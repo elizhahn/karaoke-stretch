@@ -80,18 +80,20 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-book-nav]').click();
       cy.get('[data-cy=song-card-btn]').first().click();
       cy.get('[data-cy=my-songs-nav]').click();
-      cy.get('[data-cy=song-card]').should("contain", "Radiohead")
+      cy.get('[data-cy=song-card]').should("contain", "Jigsaw falling into place")
+      .and("contain", "Radiohead")
       .and("contain","Electronica")
       .and("contain","Rock")
       cy.get('[data-cy=album-img]').should('exist');
       cy.get('[data-cy=song-card-btn]').should('exist');
     });
 
-    it.only('should remove a song from a user\'s list', () => {
+    it('should remove a song from a user\'s list', () => {
       cy.get('[data-cy=song-book-nav]').click();
       cy.get('[data-cy=song-card-btn]').eq(1).click();
       cy.get('[data-cy=my-songs-nav]').click();
-      cy.get('[data-cy=song-card]').should("contain", "Usher")
+      cy.get('[data-cy=song-card]').should("contain", "My Boo")
+      .and("contain", "Usher")
       .and("contain","Hip Hop")
       .and("contain","R&B")
       cy.get('[data-cy=song-card-btn]').click();
@@ -103,29 +105,20 @@ describe('CarryOkay', () => {
   describe('Song Book', () => {
 
     beforeEach(() => {
-      cy.get('a[id="song-book"]').click();
-    });
+      cy.intercept('/genres', {fixture:"genre_data.json"})
+      cy.intercept('/songs', {fixture:"song_data.json"})
+      cy.visit('http://localhost:3000');
+      cy.get('[data-cy=song-book-nav]').click();
+     });
 
-    it('should display Song Book page components', () => {
-      cy.get('h1').contains('Song Book');
-      cy.get('form').should('exist');
-      //Test for search bar button
-      //Test for library component
-      cy.get('a[id="my-songs"]').contains("My Songs");
-      cy.get('a[id="song-book"]').contains("Songbook");
-    });
-
-    it('should display list of all songs', () => {
-      cy.fixture('/song-data.js').then((data) => {
-        data.songData.forEach(song => {
-          cy.get('div').contains(song.song_title);
-          cy.get('div').contains(song.artist);
-
-          song.genres.forEach(genre => {
-            cy.get('div').contains(genre);
-          });
-        });
-      });
+    it.only('should display Song Book page components', () => {
+      cy.get('[data-cy=song-book-title]').contains('Song Book');
+      cy.get('[data-cy=my-songs-nav]').contains("My Songs");
+      cy.get('[data-cy=song-book-nav]').contains("Song Book");
+      cy.get('[data-cy=search-bar]').should('exist');
+      cy.get('[data-cy=song-card]').should("have.length", 2);
+      cy.get('[data-cy=song-card]').eq(0).contains("Radiohead");
+      cy.get('[data-cy=song-card]').eq(1).contains("Usher");
     });
 
     it('should allow user to make a search', () => {
