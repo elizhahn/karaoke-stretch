@@ -89,7 +89,7 @@ class App extends Component {
           songs={ this.state.songBook } 
           mySongs={this.state.mySongs}
           handleSong={this.addSong} 
-          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon"/>]}
+          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>]}
           />}
         </Route>
       </div>

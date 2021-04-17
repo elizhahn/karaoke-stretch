@@ -104,69 +104,54 @@ describe('CarryOkay', () => {
 
   describe('Song Book', () => {
 
-    beforeEach(() => {
-      cy.intercept('/genres', {fixture:"genre_data.json"})
-      cy.intercept('/songs', {fixture:"song_data.json"})
-      cy.visit('http://localhost:3000');
-      cy.get('[data-cy=song-book-nav]').click();
-     });
-
-    it('should display Song Book page components', () => {
-      cy.get('[data-cy=song-book-title]').contains('Song Book');
-      cy.get('[data-cy=my-songs-nav]').contains("My Songs");
-      cy.get('[data-cy=song-book-nav]').contains("Song Book");
-      cy.get('[data-cy=search-form]').should('exist');
-      cy.get('[data-cy=song-card]').should("have.length", 2);
-      cy.get('[data-cy=song-card]').eq(0).contains("Radiohead");
-      cy.get('[data-cy=song-card]').eq(1).contains("Usher");
+  beforeEach(() => {
+    cy.intercept('/genres', {fixture:"genre_data.json"})
+    cy.intercept('/songs', {fixture:"song_data.json"})
+    cy.visit('http://localhost:3000');
+    cy.get('[data-cy=song-book-nav]').click();
     });
 
-    it.only('should allow user to make a search', () => {
-      cy.get('[data-cy=search-bar]').type('usher');
-      cy.get('[data-cy=search-btn').click()
-      cy.get('[data-cy=song-card]').should("have.length", 1)
-        .and('contain', 'Usher');
-      cy.get('[data-cy=search-bar]').clear()
-      cy.get('[data-cy=search-bar]').type('body')
-      cy.get('[data-cy=search-btn').click()
-      cy.get('[data-cy=song-card]').should('have.length', 2);
-    });
-
-    //still need this functionality
-    it('should display a helpful message if search yields no results', () => {
-      expect(true).to.equal(false);
-    });
-
+  it('should display Song Book page components', () => {
+    cy.get('[data-cy=song-book-title]').contains('Song Book');
+    cy.get('[data-cy=my-songs-nav]').contains("My Songs");
+    cy.get('[data-cy=song-book-nav]').contains("Song Book");
+    cy.get('[data-cy=search-form]').should('exist');
+    cy.get('[data-cy=song-card]').should("have.length", 2);
+    cy.get('[data-cy=song-card]').eq(0).contains("Radiohead");
+    cy.get('[data-cy=song-card]').eq(1).contains("Usher");
   });
 
-  describe('User Data Manipulation', () => {
-
-    beforeEach(() => {
-      cy.get('a[id="song-book"]').click();
-      cy.get('button[id="1"]').click();
-      cy.get('a[id="my-songs"]').click();
-    });
-
-    it('should allow a user to add a song to their library', () => {
-      cy.get('div[class="song-card"]').contains("Radiohead");
-      cy.get('div[class="song-card"]').contains("electronica");
-      cy.get('div[class="song-card"]').contains("alternative rock");
-      cy.get('img').should('exist');
-      cy.get('button[id="1"]').should('not.exist');
-    });
-
-    //This test checks to see if the "add" button disappears after user clicks it
-    it('should not allow user to add duplicate songs to user library', () => {
-      cy.get('a[id="song-book"]').click();
-      cy.get('button[id="1"]').should('not.exist');
-    });
-
-    it('should allow a user to remove a song from their library', () => {
-      // cy.get('remove button').click();
-      // cy.get("Radiohead").should('not.exist');
-      cy.expect(true).to.equal(false);
-    });
-
+  it('should allow user to make a search', () => {
+    cy.get('[data-cy=search-bar]').type('usher');
+    cy.get('[data-cy=search-btn').click()
+    cy.get('[data-cy=song-card]').should("have.length", 1)
+      .and('contain', 'Usher');
+    cy.get('[data-cy=search-bar]').clear()
+    cy.get('[data-cy=search-bar]').type('body')
+    cy.get('[data-cy=search-btn').click()
+    cy.get('[data-cy=song-card]').should('have.length', 2);
   });
 
+  //still need this functionality
+  it('should display a helpful message if search yields no results', () => {
+    expect(true).to.equal(false);
+  });
+
+  it('should allow a user to add a song to their library', () => {
+    cy.get('[data-cy=song-card-btn]').first().click();
+    cy.get('[data-cy=my-songs-nav]').click()
+    cy.get('[data-cy=song-card]').should("contain", "Jigsaw falling into place")
+        .and("contain", "Radiohead")
+        .and("contain","Electronica")
+        .and("contain","Rock")
+  });
+
+  it.only('should not allow user to add duplicate songs to user library', () => {
+    cy.get('[data-cy=song-card-btn]').first().click();
+    cy.get('[data-cy=song-card-btn]').first().should('be.disabled');
+    //not sure how to test for a specific heart icon here..
+    cy.get('[data-cy=heart-icon]').should('exist');
+  });
 });
+});
+
