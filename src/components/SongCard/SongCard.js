@@ -12,7 +12,7 @@ const SongCard = ({ id, title, artist, genres, album_cover, handleSong, buttonIc
 
   return (
     <div className='song-card'>
-      <img src={ album_cover }/>
+      <img src={ album_cover } alt={ `${title} by ${artist} album cover art` }/>
       <article className="song-details">
         <h2>{ title }</h2>
         <p>Artist: { artist }</p>
