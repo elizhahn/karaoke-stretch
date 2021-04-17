@@ -4,17 +4,17 @@
 './partials/extends',
 './partials/mixins',
 './App.scss',
+'./components/SongCard/SongCard.scss',
 './components/Navigation/Navigation.scss',
 './components/SearchBar/SearchBar.scss',
 './components/SongLibrary/SongLibrary.scss',
-'./components/mySongLibrary/MySongLibrary.scss';
+'./components/mySongLibrary/MySongLibrary.scss'
+;
 
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  @extend %functional-medium;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
