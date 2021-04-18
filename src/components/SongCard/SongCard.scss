@@ -35,15 +35,18 @@
 
 .handle-song-btn {
   position: absolute;
-  right: 5px;
-  top: 42.5%;
+  right: 20px;
+  top: 30%;
   width: 45px;
   background: none;
   cursor: pointer;
   border: none;
 }
 
-
-.hidden {
-  display: none;
+.lyrics-btn {
+  top: 60%; 
 }
+
+// .hidden {
+//   display: none;
+// }

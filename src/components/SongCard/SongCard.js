@@ -1,6 +1,7 @@
 import { React, Component } from 'react';
 import '../SongCard/SongCard.scss';
 import Lyric from '../Lyric/Lyric';
+import { GiMicrophone } from "react-icons/gi"
 import { fetchLyrics } from "../../APICalls";
 
 class SongCard extends Component {
@@ -33,20 +34,22 @@ render() {
     );
   });
   return (
-    <div className='song-card' data-cy="song-card">
-      <img src={ album_cover } data-cy="album-img" alt={ `${title} by ${artist} album cover art` }/>
-      <article className="song-details">
-        <h2>{ title }</h2>
-        <p>Artist: { artist }</p>
-        <ul className="genres">
-          { listItems }
-        </ul>
-      </article>
-      <button className={"handle-song-btn"} disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
-      <button onClick={() => this.getLyrics(artist, title)}>Get Lyrics</button>
-      {!!Object.keys(this.state.lyrics).length && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
-      {this.state.error && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
-    </div>
+    
+      <div className='song-card' data-cy="song-card">
+        <img src={ album_cover } data-cy="album-img" alt={ `${title} by ${artist} album cover art` }/>
+        <article className="song-details">
+          <h2>{ title }</h2>
+          <p>Artist: { artist }</p>
+          <ul className="genres">
+            { listItems }
+          </ul>
+        </article>
+        <button className="handle-song-btn" disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
+        <button className=" handle-song-btn lyrics-btn" onClick={() => this.getLyrics(artist, title)}>{<GiMicrophone className="handle-song-icon"/>}</button>
+        {!!Object.keys(this.state.lyrics).length && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
+        {this.state.error && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
+      </div>
+
   );
  };
 }
