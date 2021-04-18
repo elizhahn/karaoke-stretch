@@ -17,7 +17,7 @@ class SongCard extends Component {
 getLyrics = (artist, songtitle) => {
   fetchLyrics(artist, songtitle)
   .then(data => {
-    const formattedLyrics = formatLyrics(data)
+    const formattedLyrics = formatLyrics(data, songtitle)
     this.setState({lyrics: formattedLyrics})
   })
   .catch(error => this.setState({error: "We weren't able to get you those lyrics at this time"}))

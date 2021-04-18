@@ -1,7 +1,7 @@
-export const formatLyrics = (lyricData) => {
- const formattedLyrics = lyricData.lyrics.split('\n').map(line => {
+export const formatLyrics = (lyricData, songTitle) => {
+ const formattedLyrics = lyricData.lyrics.split('\n').map((line, i) => {
    return (
-     <span>
+     <span key={i}>
        {line}
        <br/>
      </span>
