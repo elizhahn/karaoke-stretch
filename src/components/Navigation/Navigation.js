@@ -7,7 +7,7 @@ const Navigation = ({ dynamic }) => {
     if (dynamic !== 'home-nav') {
       return ''
     } else {
-      return 'letter-k'
+      return ''
     }
   }
 
@@ -25,7 +25,7 @@ const Navigation = ({ dynamic }) => {
         <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
       </div>
       <div className={ determineDivider() }>
-        {dynamic !== 'home-nav' && <NavLink to="/" className="home-link">To Home</NavLink>}
+        {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl"/>}
       </div>
       <div className="home-btns home-song-book">
         <NavLink activeClassName="songbook-active" className="home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song Book</NavLink>

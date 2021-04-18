@@ -43,7 +43,7 @@
 
 .home-my-songs { 
   border-radius: 147px 0 0 147px;  
-  background-color: rgba(202, 17, 156, 0.5); 
+  // background-color: rgba(202, 17, 156, 0.5); 
 }
 
 .home-my-songs:hover {
@@ -52,7 +52,7 @@
 
 .home-song-book {
   border-radius: 0 147px 147px 0; 
-  background-color: rgba(16, 16, 121, 0.5);
+  // background-color: rgba(16, 16, 121, 0.5);
 }
 
 .home-song-book:hover {
@@ -69,4 +69,15 @@
   height: 100px;
   display: grid;
   grid-template-columns: auto 160px auto;
+  // background: 
+  //   url('./francesco-de-tommaso-gskWuDulJn8-unsplash.jpg') no-repeat,
+  //   linear-gradient( 120deg, #a6c0fe 0%, #f68084 100%);
+  background-size: contain;
+}
+
+.vinyl {
+  background-image: url('../../vinyl-disc.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
