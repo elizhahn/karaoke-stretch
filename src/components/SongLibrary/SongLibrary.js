@@ -15,17 +15,21 @@ class SongLibrary extends Component {
   }
 
    searchForSongs = (searchQuery) => {
-    let modifiedSearchQuery = searchQuery.toUpperCase();
-    let matchingSongs = this.props.songs.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
-    || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
-    || song.artist.toUpperCase().includes(modifiedSearchQuery)
-    )
+     if (!searchQuery) {
+       this.setState({ renderedSongs: this.props.songs, searchResultsMsg: "" })
+     } else {
+       let modifiedSearchQuery = searchQuery.toUpperCase();
+       let matchingSongs = this.props.songs.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
+          || song.genres.toString().toUpperCase().includes(modifiedSearchQuery)
+          || song.artist.toUpperCase().includes(modifiedSearchQuery));
 
-    if(matchingSongs != "") {
-      this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}':`, renderedSongs: matchingSongs })
-    } else {
-      this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)", renderedSongs: [] })
-    }
+       if (matchingSongs.length) {
+         this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}':`, renderedSongs: matchingSongs })
+       } else {
+         this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)", renderedSongs: [] })
+       };
+
+     };
   }
 
   createSongCards = () => {

@@ -23,7 +23,6 @@ class App extends Component {
   componentDidMount() {
     fetchAllSongData()
       .then(data => {
-        console.log(data)
         const [songs, genres] = data;
         this.modifyData(songs, genres);
       })
