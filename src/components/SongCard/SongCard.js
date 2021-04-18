@@ -17,6 +17,7 @@ class SongCard extends Component {
 getLyrics = (artist, songtitle) => {
   fetchLyrics(artist, songtitle)
   .then(data => {
+    console.log(data)
     const formattedLyrics = formatLyrics(data, songtitle)
     this.setState({lyrics: formattedLyrics})
   })
