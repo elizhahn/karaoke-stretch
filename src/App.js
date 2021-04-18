@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './partials/_variables.scss'
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
@@ -58,13 +59,12 @@ class App extends Component {
       <div className="App">
         <Route exact path="/">
           <section className="home-container">
-            <h1 className="home-title">CarryOkay</h1>
-            <p className="home-greeting">Hello friend 😬</p>
+            <h1 className="home-title glow">CarryOkay</h1>
+            <p className="home-greeting">Ready to sing?</p>
             <Navigation dynamic="home-nav" />
           </section>
         </Route>
         <Route path="/mysongs">
-          <h1 data-cy="my-songs-title">My Songs</h1>
           <Navigation dynamic="off-home-nav" />
           {!!this.state.mySongs.length &&
           <MySongLibrary
@@ -77,7 +77,6 @@ class App extends Component {
           <h2>{this.state.error}</h2>}
         </Route>
         <Route path="/songbook">
-          <h1 data-cy="song-book-title">Song Book</h1>
           <Navigation dynamic="off-home-nav" />
           {!!this.state.songBook.length &&
           <SongLibrary
