@@ -7,23 +7,16 @@
 }
 
 input.search-bar {
+  width: 40%;
   height: 20px;
   font-size: 100%;
+  margin: 10px;
+  padding-left: 25px;
+  align-self: center;
   background-image: url(https://www.flaticon.com/svg/vstatic/svg/900/900930.svg?token=exp=1618726933~hmac=e5c3912afdce6b6f8aed9cfc115cc15d);
   background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 20px;
-  padding-left: 25px;
-}
-
-.search-bar {
-  width: 40%;
-  height: 100%;
-  border: none;
-  border-bottom: 1px solid black;
-  font-size: 100%;
-  margin: 10px;
-  align-self: center;
+  border: 1px solid black;
+  border-top: none;
 }
 
 input[type="text"]:focus {

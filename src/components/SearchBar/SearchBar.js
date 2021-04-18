@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './SearchBar.scss';
-import './zoom.png';
 
 class SearchBar extends Component {
   constructor() {
@@ -36,7 +35,6 @@ class SearchBar extends Component {
         <input
           className='search-bar'
           type='text'
-          
           name='searchInput'
           value={ this.state.searchInput }
           onChange={ event => this.handleChange(event) }
