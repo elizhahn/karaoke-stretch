@@ -14,3 +14,8 @@ const fetchData = (path) => {
   return fetch(`http://localhost:8080/${path}`)
     .then(checkForErrors)
 }
+
+export const fetchLyrics = (artist, songtitle) => {
+  return fetch(`https://api.lyrics.ovh/v1/${artist}/${songtitle}`)
+  .then(checkForErrors)
+}
