@@ -11,7 +11,7 @@
 
 .modal-content { 
   background-color: #fefefe;
-  margin: 15% auto; 
+  margin: 8% auto; 
   padding: 20px;
   border: 1px solid #888;
   width: 50%; 
@@ -20,3 +20,9 @@
   overflow: scroll;  
 }
 
+@media (max-width: 600px) {
+.modal-content {
+  width:80%;
+}
+
+}
