@@ -22,7 +22,7 @@ class SongLibrary extends Component {
     )
 
     if(matchingSongs != "") {
-      this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}'':`, renderedSongs: matchingSongs })
+      this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}':`, renderedSongs: matchingSongs })
     } else {
       this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)", renderedSongs: [] })
     }
@@ -33,7 +33,7 @@ class SongLibrary extends Component {
     if(this.state.searchResultsMsg) {
       songList = this.state.renderedSongs
     } else {
-      songList = this.props.songs 
+      songList = this.props.songs
     }
     const allSongs = songList.map(song => {
       let isActive = true;
