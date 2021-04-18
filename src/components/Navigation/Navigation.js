@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Navigation.scss'
 
 const Navigation = ({ dynamic }) => {
-  const determineHomeLink = () => {
+  const determineDivider = () => {
     if (dynamic !== 'home-nav') {
       return ''
     } else {
@@ -11,13 +11,20 @@ const Navigation = ({ dynamic }) => {
     }
   }
 
+  const determineHomeLink = () => {
+    if (dynamic !== 'home-nav') {
+      return 'active-nav-bar'
+    } else {
+      return 'home-link'
+    }
+  }
 
   return (
     <nav className={ dynamic }>
       <div className="home-btns home-my-songs">
-        <NavLink activeClassName="mysongs-active"  className="home-link" id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
+        <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
       </div>
-      <div className={ determineHomeLink() }>
+      <div className={ determineDivider() }>
         {dynamic !== 'home-nav' && <NavLink to="/" className="home-link">To Home</NavLink>}
       </div>
       <div className="home-btns home-song-book">

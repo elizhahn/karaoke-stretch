@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './partials/_variables.scss'
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
@@ -74,7 +75,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/">
           <section className="home-container">
-            <h1 className="home-title">CarryOkay</h1>
+            <h1 className="home-title glow">CarryOkay</h1>
             <p className="home-greeting">Hello friend 😬</p>
             <Navigation dynamic="home-nav" />
           </section>
