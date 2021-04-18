@@ -6,7 +6,7 @@ const Lyrics = (props) => {
   return ReactDOM.createPortal(
     (<div className="modal-overlay">
     <section className="modal-content">
-     <p className="lyrics">{props.error || props.lyrics}</p>
+     <p className="lyrics">{props.error || props.lyrics}<br/>some text</p>
      <button onClick={props.closeLyrics}>Close</button>
     </section>
     </div>

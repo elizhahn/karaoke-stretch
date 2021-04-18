@@ -3,6 +3,7 @@ import '../SongCard/SongCard.scss';
 import Lyric from '../Lyric/Lyric';
 import { GiMicrophone } from "react-icons/gi"
 import { fetchLyrics } from "../../APICalls";
+import { formatLyrics } from '../../utility';
 
 class SongCard extends Component {
   constructor(props) {
@@ -16,7 +17,8 @@ class SongCard extends Component {
 getLyrics = (artist, songtitle) => {
   fetchLyrics(artist, songtitle)
   .then(data => {
-    this.setState({lyrics: data.lyrics})
+    const formattedLyrics = formatLyrics(data)
+    this.setState({lyrics: formattedLyrics})
   })
   .catch(error => this.setState({error: "We weren't able to get you those lyrics at this time"}))
 }
