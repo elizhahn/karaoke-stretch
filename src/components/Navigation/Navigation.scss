@@ -9,11 +9,6 @@
   background-image: url("./francesco-de-tommaso-gskWuDulJn8-unsplash.jpg");
 }
 
-@keyframes spin {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
-}
-
 .home-link {
  text-decoration: none; 
  color: rgb(255, 255, 255);
@@ -75,6 +70,16 @@
 .vinyl {
   background-image: url('../../vinyl-disc.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 60px;
   background-position: center;
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
