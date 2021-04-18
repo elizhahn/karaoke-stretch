@@ -31,18 +31,17 @@ class SearchBar extends Component {
 
   render () {
     return (
-      <form data-cy="search-form">
+      <form data-cy='search-form' className='search-container'>
+      <button onClick={ event => this.clearSearch(event) } data-cy='clear-btn' className='clear-btn'>Cancel</button>
         <input
           className='search-bar'
           type='text'
-          placeholder='Search all songs'
           name='searchInput'
           value={ this.state.searchInput }
           onChange={ event => this.handleChange(event) }
-          data-cy="search-bar"
+          data-cy='search-bar'
         />
-        <button onClick={ event => this.search(event) } data-cy="search-btn">Search!</button>
-        <button onClick={ event => this.clearSearch(event) }>Clear Search</button>
+        <button onClick={ event => this.search(event) } data-cy='search-btn' className='search-btn'>Search!</button>
       </form>
     )
   }

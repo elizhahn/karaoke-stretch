@@ -32,7 +32,6 @@
 
 
 .home-btns {
-  // position: relative; 
   display: flex; 
   justify-content: center; 
   align-items: center; 
@@ -43,7 +42,6 @@
 
 .home-my-songs { 
   border-radius: 147px 0 0 147px;  
-  // background-color: rgba(202, 17, 156, 0.5); 
 }
 
 .home-my-songs:hover {
@@ -52,7 +50,6 @@
 
 .home-song-book {
   border-radius: 0 147px 147px 0; 
-  // background-color: rgba(16, 16, 121, 0.5);
 }
 
 .home-song-book:hover {
