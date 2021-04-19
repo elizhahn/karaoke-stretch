@@ -59,7 +59,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/">
           <section className="home-container">
-            <h1 className="home-title glow">CarryOkay</h1>
+            <h1 className="home-title">CarryOkay</h1>
             <p className="home-greeting">Ready to sing?</p>
             <Navigation dynamic="home-nav" />
           </section>

@@ -29,13 +29,14 @@ closeLyrics = () => {
 }
 
 render() {
-  console.log(this.state)
-  const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props
+  const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props;
+
   const listItems = genres.map(genre => {
     return (
       <li className="genre" key={ `${title}-${genre}` } >{ genre }</li>
     );
   });
+  
   return (
     
       <div className='song-card' data-cy="song-card">

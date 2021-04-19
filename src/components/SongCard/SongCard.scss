@@ -30,6 +30,8 @@
 
 .genres {
   width: 100%;
+  display: flex;
+  list-style: none ;
 }
 
 .song-details > * {

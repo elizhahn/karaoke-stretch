@@ -18,3 +18,15 @@
   font-family: $functional-font;
   font-weight: 500;
 }
+
+%text-neon-glow {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px rgb(252, 22, 225),
+    0 0 80px rgb(252, 22, 225),
+    0 0 90px rgb(252, 22, 225),
+    0 0 100px rgb(252, 22, 225),
+    0 0 150px rgb(252, 22, 225);
+}
