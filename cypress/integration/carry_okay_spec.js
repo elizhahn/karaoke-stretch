@@ -121,7 +121,7 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-book-nav]').click();
       });
 
-    it.only('should display Song Book page components', () => {
+    it('should display Song Book page components', () => {
       cy.get('[data-cy=home-nav]').should('exist');
       cy.get('[data-cy=my-songs-nav]').contains('My Songs');
       cy.get('[data-cy=song-book-nav]').contains('Song Book');
