@@ -14,8 +14,9 @@
   position: abolute;
   height: 100%;
   width: 100%;
+  border-radius: 50%;
   background-image: url('../../marbled.png');
-  // animation: rotation 8s infinite linear;
+  animation: rotation 8s infinite linear;
 }
 
 .home-link {
