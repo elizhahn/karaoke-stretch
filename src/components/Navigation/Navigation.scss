@@ -19,7 +19,7 @@
 }
 
 .rotate-bg {
-  animation: rotation 8s infinite linear;
+  animation: rotation 10s infinite linear;
   border-radius: 50%;
 }
 
@@ -40,7 +40,6 @@
  flex-direction: column;
  justify-content: center;
  text-align: center;
-//  z-index: 1;
 }
 
 
@@ -52,6 +51,10 @@
   height: 100%;
   flex: 1;
   z-index: 1;
+
+  // &:hover {
+  //   background-color: #f68084(10, 10, 237, 0.5);
+  // }
 }
 
 
@@ -60,7 +63,7 @@
 }
 
 .home-my-songs:hover {
-  background-color: rgba(247, 7, 191, 0.5); 
+  background-color: #a6c0fe(247, 7, 191, 0.5); 
 }
 
 .home-song-book {
@@ -68,7 +71,7 @@
 }
 
 .home-song-book:hover {
-  background-color: rgba(10, 10, 237, 0.5); 
+  background-color: #f68084(10, 10, 237, 0.5); 
 }
 
 .letter-k {
