@@ -1,7 +1,7 @@
 import React from 'react';
 import SongCard from '../SongCard/SongCard';
 import PropTypes from 'prop-types';
-import './MySongLibrary.scss';
+
 
 const MySongLibrary = (props) => {
   const mySongList = props.songs.map(song => {

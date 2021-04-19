@@ -1,6 +1,5 @@
 import { React, Component } from 'react';
 import PropTypes from 'prop-types'; 
-import '../SongCard/SongCard.scss';
 import Lyric from '../Lyric/Lyric';
 import { GiMicrophone } from 'react-icons/gi'
 import { fetchLyrics } from '../../APICalls';
@@ -30,12 +29,13 @@ closeLyrics = () => {
 
 render() {
   const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props;
+  
   const listItems = genres.map(genre => {
     return (
-      <li className="genre" key={ `${title}-${genre}` } >{ genre }</li>
+      <li key={ `${title}-${genre}` } >{ `#${genre}` }</li>
     );
   });
-
+  
   return (
       <div className="song-card" data-cy="song-card">
         <img 
@@ -45,7 +45,7 @@ render() {
         />
         <article className="song-details">
           <h2>{ title }</h2>
-          <p>Artist: { artist }</p>
+          <p className="artist">Artist: { artist }</p>
           <ul className="genres">
             { listItems }
           </ul>

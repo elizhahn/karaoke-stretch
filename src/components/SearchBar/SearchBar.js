@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SearchBar.scss';
 import search from './zoom.png';
 
 class SearchBar extends Component {

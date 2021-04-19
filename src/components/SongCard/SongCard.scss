@@ -1,22 +1,24 @@
+@import '../../partials/variables', '../../partials/extends', '../../partials/mixins';
+
 .song-card {
   border-radius: 15px;
-  box-shadow: 0px 0px 11px 1px rgb(192, 47, 192);
+  box-shadow: 0px 0px 11px 1px whitesmoke;
   display: grid;
   position: relative;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 225px auto 60px;
   grid-template-rows: auto;
   padding: 10px 0px;
   background-color: white;
-}
 
-.song-card > img {
-  grid-column: 1 / 2;
-  border-radius: 50%;
-  padding: 15px;
-  width: 175px;
-  height: 175px;
-  justify-self: center;
-  align-self: center;
+  img {
+    grid-column: 1 / 2;
+    border-radius: 50%;
+    padding: 15px;
+    width: 175px;
+    height: 175px;
+    justify-self: center;
+    align-self: center;
+  }
 }
 
 .song-details {
@@ -28,8 +30,29 @@
   align-items: center;
 }
 
+.artist {
+  padding-left: 0px;
+  @extend %functional-italic-light;  
+}
+
 .genres {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-inline-start: 0px;
+
+  li {
+    background-color: #a6c0fe;
+    padding: 8px;
+    border-radius: 30px;
+    margin: 10px;
+
+    &:hover {
+      background-color: #f68084;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
 }
 
 .song-details > * {
@@ -50,3 +73,28 @@
   top: 60%; 
 }
 
+@media screen and (max-width: 480px) {
+  .song-card {
+    grid-template-columns: auto;
+  }
+
+  .song-details {
+    grid-column: span 1;
+    * {
+      text-align: center;
+    }
+  }
+
+  .genres {
+    justify-content: center;
+  }
+
+  .handle-song-btn {
+    right: 20px;
+    top: 4%;
+  }
+
+  .lyrics-btn {
+    top: 15%; 
+  }
+}
