@@ -25,7 +25,7 @@ const Navigation = ({ dynamic }) => {
       <div className="home-btns home-my-songs">
         <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">{`My\nSongs`}</NavLink>
       </div>
-      <div>
+      <div data-cy='home-nav'>
         {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl"/>}
       </div>
       <div className="home-btns home-song-book">

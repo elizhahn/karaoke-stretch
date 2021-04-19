@@ -70,8 +70,8 @@ class App extends Component {
           <MySongLibrary
           songs={ this.state.mySongs }
           mySongs={this.state.mySongs }
-          handleSong={this.removeSong}
-          buttonIcon={[<MdRemoveCircle className="handle-song-icon"/>]}
+          handleSong={ this.removeSong }
+          buttonIcon={ [<MdRemoveCircle className="handle-song-icon"/>] }
           />}
           {this.state.error &&
           <h2>{this.state.error}</h2>}
@@ -81,9 +81,9 @@ class App extends Component {
           {!!this.state.songBook.length &&
           <SongLibrary
           songs={ this.state.songBook }
-          mySongs={this.state.mySongs}
-          handleSong={this.addSong}
-          buttonIcon={[<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>]}
+          mySongs={ this.state.mySongs }
+          handleSong={ this.addSong }
+          buttonIcon={ [<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>] }
           />}
           {this.state.error && <h2>{this.state.error}</h2>}
         </Route>

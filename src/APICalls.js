@@ -11,7 +11,7 @@ export const fetchAllSongData = () => {
   }
 
 const fetchData = (path) => {
-  return fetch(`http://localhost:8080/${path}`)
+  return fetch(`https://carryokay-server.herokuapp.com/${path}`)
     .then(checkForErrors)
 }
 
