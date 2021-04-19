@@ -5,6 +5,7 @@ This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3
 ### Deployed App: [CarryOkay]()
 ### Deployed Back-End: [CarryOkay Database](https://carryokay-server.herokuapp.com/)
 
+## Outline
 
 1. [Project Overview](#project-overview)
 2. [App Overview](#app-overview)
