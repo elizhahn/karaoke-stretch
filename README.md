@@ -120,7 +120,7 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ### End-to-End Testing Suite
 
-![](https://media.giphy.com/media/WD82sTWtXMdsbHJ7rf/giphy.gif)
+![](https://media.giphy.com/media/Sj0bgQZFOLhQNQNdpj/giphy.gif)
 
 ## Instructions for Installation
 
