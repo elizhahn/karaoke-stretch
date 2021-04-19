@@ -13,15 +13,15 @@ const Navigation = ({ dynamic }) => {
 
   const determineBackground = () => {
     if (dynamic !== 'home-nav') {
-      return ''
+      return 'static-bg';
     } else {
-      return ''
+      return 'rotate-bg';
     }
   }
 
   return (
     <nav className={ dynamic }>
-      <div className="marbled"></div>
+      {dynamic === 'home-nav' && <div className={ `marbled ${ determineBackground() }`}></div>}
       <div className="home-btns home-my-songs">
         <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">{`My\nSongs`}</NavLink>
       </div>

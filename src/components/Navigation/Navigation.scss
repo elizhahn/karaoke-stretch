@@ -15,10 +15,16 @@
   height: 100%;
   width: 100%;
   z-index: 0.5;
-  border-radius: 50%;
   background-image: url('../../marbled.png');
-  // animation: rotation 8s infinite linear;
-  // animation: rotation 8s infinite linear;
+}
+
+.rotate-bg {
+  animation: rotation 8s infinite linear;
+  border-radius: 50%;
+}
+
+.static-bg {
+  border-radius: 25px;
 }
 
 .home-link {
@@ -75,8 +81,7 @@
   height: 100px;
   display: grid;
   grid-template-columns: auto 160px auto;
-  // background: 
-  //   url('./francesco-de-tommaso-gskWuDulJn8-unsplash.jpg') no-repeat,
+  position: relative;
   background-size: contain;
 }
 
