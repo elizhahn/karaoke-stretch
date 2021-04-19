@@ -1,12 +1,7 @@
+@import '../../partials/variables', '../../partials/extends';
+
 .library {
-  display: grid;
-  max-width: 100vw;
-  max-height: 100%;
-  grid-template-columns: repeat(2, minmax( 260px, 1fr));
-  grid-template-rows: auto;
-  gap: 25px;
-  justify-items: stretch;
-  margin: 0px 20px;
+  @extend %song-cards-container;
 }
 
 .library > * {
