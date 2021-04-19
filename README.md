@@ -9,8 +9,9 @@ This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3
 
 
 
-1. [Overview](#overview)
-2. [Planning Resources](#planning-resources)
+1. [Project Overview](#project-overview)
+2. [App Overview](#app-overview)
+3. [Planning Resources](#planning-resources)
 4. [Learning Goals](#learning-goals)
 5. [Tech Stack](#tech-stack)
 6. [Features](#features)
@@ -18,9 +19,12 @@ This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3
 9. [Future Iterations](#future-iterations)
 
 
+## Project Overview
 
-## Overview
+The goal of this project was to self-teach back-end technologies and create a database, build out a server, and make network requests to access that data. We decided to learn PostgreSQL and Knex, and to build upon our understanding of Node.js and Express.js. We also built out the front-end of the application using React.js, HTML5 and CSS3/SCSS, and implemented an automated testing suite using Cypress. In summary, this is a fully tested, PERN stack application.
 
+
+## App Overview
 
 Have you ever been out and about and _suddenly_ your group decides it's time to karaoke? You're super stoked and ready to have some fun, but all of a sudden you can't seem to remember your favorite karaoke songs 😱 !
 
@@ -29,7 +33,6 @@ If only you had a better memory! If only you hadn't had those last two (or three
 As a user, you can tap or click the ♡ to add a song from the Song Book to your personal library. Not into it as much as you were last night? Simply remove it by tapping or clicking the ⛔️ on your 'My Songs' page. Tap or click the 🎤 icon to see the lyrics of your desired song in a convenient pop-up, or search for songs by title, artist, or genre!
 
 CarryOkay: the app you carry, the app that makes everything okay, the app for karaoke!
-
 
 
 ## Planning Resources
