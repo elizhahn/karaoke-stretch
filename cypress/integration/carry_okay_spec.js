@@ -20,52 +20,53 @@ describe('CarryOkay', () => {
 
   });
 
-  describe('Navigation', () => {
+  describe.only('Navigation', () => {
 
     it('should be able to navigate to My Songs view from Home view', () => {
       cy.get('[data-cy=my-songs-nav]').click();
-      cy.get("CarryOkay").should('not.exist');
-      cy.get("Hello friend 😬").should('not.exist');
-      cy.url().should("eq", "http://localhost:3000/mysongs")
+      cy.get('[data-cy=App-title]').should('not.exist');
+      cy.get('[data-cy=home-greeting]').should('not.exist');
+      cy.url().should('eq', 'http://localhost:3000/mysongs');
     });
 
     it('should be able to navigate to Song Book view from Home view', () => {
       cy.get('[data-cy=song-book-nav]').click();
-      cy.get("CarryOkay").should('not.exist');
-      cy.get("Hello friend 😬").should('not.exist');
-      cy.url().should("eq", "http://localhost:3000/songbook")
+      cy.get('[data-cy=App-title]').should('not.exist');
+      cy.get('[data-cy=home-greeting]').should('not.exist');
+      cy.url().should('eq', 'http://localhost:3000/songbook');
     });
 
-    //still missing this functionality
-    it.only('should be able to navigate from My Songs view to Home view', () => {
+    it('should be able to navigate from My Songs view to Home view', () => {
       cy.get('[data-cy=my-songs-nav]').click();
-      cy.expect(true).to.equal(false);
+      cy.get('[data-cy=home-nav]').click();
+      cy.url().should('eq', 'http://localhost:3000/');
     });
     
-    //still missing this functionality
+    
     it('should be able to navigate from Song Book view to Home view', () => {
       cy.get('[data-cy=song-book-nav]').click();
-      cy.expect(true).to.equal(false);
+      cy.get('[data-cy=home-nav]').click();
+      cy.url().should('eq', 'http://localhost:3000/');
     });
 
     it('should be able to navigate from My Songs view to Song Book view', () => {
       cy.get('[data-cy=my-songs-nav]').click();
       cy.get('[data-cy=song-book-nav]').click();
-      cy.url().should("eq", "http://localhost:3000/songbook")
+      cy.url().should('eq', 'http://localhost:3000/songbook');
     });
 
     it('should be able to navigate from Song Book view to My Songs view', () => {
       cy.get('[data-cy=song-book-nav]').click();
       cy.get('[data-cy=my-songs-nav]').click();
-      cy.url().should("eq", "http://localhost:3000/mysongs")
+      cy.url().should('eq', 'http://localhost:3000/mysongs');
     });
 
   });
 
   describe('My Songs', () => {
     beforeEach(() => {
-      cy.intercept( '/genres', {fixture:"genre_data.json"})
-      cy.intercept('/songs', {fixture:"song_data.json"})
+      cy.intercept( '/genres', {fixture:'genre_data.json'});
+      cy.intercept('/songs', {fixture:'song_data.json'});
       cy.visit('http://localhost:3000');
       cy.get('[data-cy=my-songs-nav]').click();
      });
