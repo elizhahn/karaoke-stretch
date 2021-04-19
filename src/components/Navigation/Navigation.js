@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import './Navigation.scss'
 
 const Navigation = ({ dynamic }) => {
@@ -22,17 +22,11 @@ const Navigation = ({ dynamic }) => {
   return (
     <nav className={ dynamic }>
       {dynamic === 'home-nav' && <div className={ `marbled rotate-bg`}></div>}
-      <div className="home-btns home-my-songs">
-        <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">{`My\nSongs`}</NavLink>
-      </div>
-      <div data-cy='home-nav'>
-        {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl"/>}
-      </div>
-      <div className="home-btns home-song-book">
-        <NavLink activeClassName="songbook-active" className="home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song{"\n"}Book</NavLink>
-      </div>
+      <NavLink className="home-btns home-link" id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
+      {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl" data-cy='home-nav'/>}
+      <NavLink className="home-btns home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song Book</NavLink>
     </nav>
   )
 }
 
-export default Navigation;
+export default withRouter(Navigation);
