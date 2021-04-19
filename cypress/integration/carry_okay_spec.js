@@ -1,8 +1,8 @@
 describe('CarryOkay', () => {
 
  beforeEach(() => {
-  cy.intercept( 'https://carryokay-server.herokuapp.com/genres', {fixture:"genre_data.json"})
-  cy.intercept('https://carryokay-server.herokuapp.com/songs', {fixture:"song_data.json"})
+  cy.intercept( '/genres', {fixture:"genre_data.json"})
+  cy.intercept('/songs', {fixture:"song_data.json"})
   cy.visit('http://localhost:3000');
  });
 
@@ -64,8 +64,8 @@ describe('CarryOkay', () => {
 
   describe('My Songs', () => {
     beforeEach(() => {
-      cy.intercept( 'https://carryokay-server.herokuapp.com/genres', {fixture:"genre_data.json"})
-      cy.intercept('https://carryokay-server.herokuapp.com/songs', {fixture:"song_data.json"})
+      cy.intercept( '/genres', {fixture:"genre_data.json"})
+      cy.intercept('/songs', {fixture:"song_data.json"})
       cy.visit('http://localhost:3000');
       cy.get('[data-cy=my-songs-nav]').click();
      });
@@ -106,8 +106,8 @@ describe('CarryOkay', () => {
   describe('Song Book', () => {
 
   beforeEach(() => {
-    cy.intercept( 'https://carryokay-server.herokuapp.com/genres', {fixture:"genre_data.json"})
-    cy.intercept('https://carryokay-server.herokuapp.com/songs', {fixture:"song_data.json"})
+    cy.intercept( '/genres', {fixture:"genre_data.json"})
+    cy.intercept('/songs', {fixture:"song_data.json"})
     cy.visit('http://localhost:3000');
     cy.get('[data-cy=song-book-nav]').click();
     });
@@ -163,8 +163,8 @@ describe('CarryOkay', () => {
 
 describe('Lyrics card', () => {
   beforeEach(() => {
-    cy.intercept( 'https://carryokay-server.herokuapp.com/genres', {fixture:"genre_data.json"})
-    cy.intercept('https://carryokay-server.herokuapp.com/songs', {fixture:"song_data.json"})
+    cy.intercept( '/genres', {fixture:"genre_data.json"})
+    cy.intercept('/songs', {fixture:"song_data.json"})
     cy.visit('http://localhost:3000');
     cy.get('[data-cy=song-book-nav]').click();
    });
