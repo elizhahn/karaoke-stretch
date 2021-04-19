@@ -1,5 +1,4 @@
 import { React, Component } from 'react';
-import '../SongCard/SongCard.scss';
 import Lyric from '../Lyric/Lyric';
 import { GiMicrophone } from "react-icons/gi"
 import { fetchLyrics } from "../../APICalls";

@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
-import './Navigation.scss'
 
 const Navigation = ({ dynamic }) => {
   return (
