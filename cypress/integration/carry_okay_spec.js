@@ -31,8 +31,8 @@ describe('CarryOkay', () => {
     });
 
     it('should contain Navigation links', () => {
-      cy.get('[data-cy=my-songs-nav]').contains("My Songs");
-      cy.get('[data-cy=song-book-nav]').contains("Song Book");
+      cy.get('[data-cy=my-songs-nav]').contains('My Songs');
+      cy.get('[data-cy=song-book-nav]').contains('Song Book');
     });
   });
 
@@ -93,7 +93,7 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-book-nav]').click();
       cy.get('[data-cy=song-card-btn]').first().click();
       cy.get('[data-cy=my-songs-nav]').click();
-      cy.get('[data-cy=song-card]').should("contain", "Jigsaw falling into place")
+      cy.get('[data-cy=song-card]').should('contain', 'Jigsaw falling into place')
         .and('contain', 'Radiohead')
         .and('contain','Electronica')
         .and('contain','Rock');
@@ -121,18 +121,29 @@ describe('CarryOkay', () => {
       cy.get('[data-cy=song-book-nav]').click();
       });
 
-    it('should display Song Book page components', () => {
+    it.only('should display Song Book page components', () => {
       cy.get('[data-cy=home-nav]').should('exist');
       cy.get('[data-cy=my-songs-nav]').contains('My Songs');
       cy.get('[data-cy=song-book-nav]').contains('Song Book');
       cy.get('[data-cy=search-form]').should('exist');
-      cy.get('[data-cy=song-card]').should("have.length", 2);
-      cy.get('[data-cy=song-card]').eq(0).contains('Radiohead');
-      cy.get('[data-cy=song-card]').eq(1).contains('Usher');
-      cy.get('[data-cy=song-card]').first().should('contain', 'Jigsaw falling into place')
-      .and('contain', 'Radiohead')
-      .and('contain','Electronica')
-      .and('contain','Rock');
+      cy.get('[data-cy=song-card]').should('have.length', 2);
+       
+      cy.fixture('/song_data.json').then((data) => {
+        data.forEach(song => {
+          cy.get('[data-cy=song-card]').contains(song.title);
+          cy.get('[data-cy=song-card]').contains(song.artist);
+          });
+        });
+      cy.fixture('/genre_data.json').then((data) => {
+        data.forEach(genre => {
+          const genres = Object.entries(genre)
+          genres.forEach(entry => {
+            if(entry.includes(true)) {
+              cy.get('[data-cy=song-card]').contains(entry[0]);
+            }
+          });
+        });
+      });
       cy.get('[data-cy=album-img]').first().should('exist');
       cy.get('[data-cy=song-card-btn]').first().should('exist');
       cy.get('[data-cy=microphone-icon]').should('exist');
@@ -170,9 +181,6 @@ describe('CarryOkay', () => {
 
   describe('Lyrics card', () => {
     beforeEach(() => {
-      cy.intercept( '/genres', {fixture:'genre_data.json'});
-      cy.intercept('/songs', {fixture:'song_data.json'});
-      cy.visit('http://localhost:3000');
       cy.get('[data-cy=song-book-nav]').click();
     });
 
@@ -189,20 +197,5 @@ describe('CarryOkay', () => {
   });
 });
 
-// describe('Server error message', () => {
-  
-//   it.only('Should display a message to the user if there and issue with the server', () =>{
-//     cy.intercept({
-//       method: 'GET', 
-//       url:'/songs'
-//     },
-//     {
-//       statusCode: 500,
-//     })
-//     cy.visit('http://localhost:3000');
-//     cy.get('[data-cy=song-book-nav]').click();
-
-//   });
-// });
 
 
