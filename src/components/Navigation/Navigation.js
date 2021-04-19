@@ -1,37 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import './Navigation.scss'
+import { NavLink, withRouter } from 'react-router-dom';
 
 const Navigation = ({ dynamic }) => {
-  const determineDivider = () => {
-    if (dynamic !== 'home-nav') {
-      return ''
-    } else {
-      return ''
-    }
-  }
-
-  const determineHomeLink = () => {
-    if (dynamic !== 'home-nav') {
-      return 'active-nav-bar'
-    } else {
-      return 'home-link'
-    }
-  }
-
   return (
     <nav className={ dynamic }>
-      <div className="home-btns home-my-songs">
-        <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
-      </div>
-      <div className={ determineDivider() } data-cy='home-nav'>
-        {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl" aria-label='navigate home link'/>}
-      </div>
-      <div className="home-btns home-song-book">
-        <NavLink activeClassName="songbook-active" className="home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song Book</NavLink>
-      </div>
+      {dynamic === 'home-nav' && <div className={ `marbled rotate-bg`}></div>}
+      <NavLink className="home-btns home-link" id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
+      {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl" data-cy='home-nav'/>}
+      <NavLink className="home-btns home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song Book</NavLink>
     </nav>
   )
 }
 
-export default Navigation;
+export default withRouter(Navigation);

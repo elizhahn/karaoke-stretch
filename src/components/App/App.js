@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import './partials/_variables.scss'
 import { Route } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation';
-import SongLibrary from './components/SongLibrary/SongLibrary';
-import MySongLibrary from './components/mySongLibrary/MySongLibrary';
-import './App.scss';
-import { fetchAllSongData } from './APICalls';
+import Navigation from '../Navigation/Navigation';
+import SongLibrary from '../SongLibrary/SongLibrary';
+import MySongLibrary from '../mySongLibrary/MySongLibrary';
+import { fetchAllSongData } from '../../APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa';
-import { modifyData } from './utility';
+import { modifyData } from '../../utility';
 
 
 class App extends Component {
@@ -59,8 +57,8 @@ class App extends Component {
       <div className="App">
         <Route exact path="/">
           <section className="home-container">
-            <h1 className="home-title glow" data-cy="App-title">CarryOkay</h1>
-            <p className="home-greeting" data-cy="home-greeting">Ready to sing?</p>
+            <h1 className="home-title">CarryOkay</h1>
+            <p className="home-greeting">Ready to sing?</p>
             <Navigation dynamic="home-nav" />
           </section>
         </Route>

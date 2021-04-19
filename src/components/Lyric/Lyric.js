@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import "./Lyric.scss";
 import { MdClose } from "react-icons/md";
 
 const Lyrics = (props) => {

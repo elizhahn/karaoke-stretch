@@ -8,7 +8,7 @@ const checkForErrors = response => {
 
 export const fetchAllSongData = () => {
   return Promise.all([fetchData('songs'), fetchData('genres')])
-  }
+}
 
 const fetchData = (path) => {
   return fetch(`https://carryokay-server.herokuapp.com/${path}`)

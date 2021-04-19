@@ -1,9 +1,6 @@
 import { React, Component } from 'react';
 import SongCard from '../SongCard/SongCard';
 import SearchBar from "../SearchBar/SearchBar";
-import '../SongLibrary/SongLibrary.scss';
-
-
 
 class SongLibrary extends Component {
   constructor(props) {

@@ -1,4 +1,5 @@
-@import './partials/variables';
+@import '../../partials/variables', '../../partials/extends';
+
 
 html {
   height: 100%; 
@@ -22,35 +23,37 @@ body {
 }
 
 .home-container {
-  color: #fff;
+  color: white;
   display: flex; 
   flex-direction: column; 
   align-items: center;
   justify-content: center; 
-  // background: rgb(251,250,252);
-  // background: linear-gradient(0deg, rgba(251,250,252,1) 40%, rgb(137, 193, 225) 100%);
-  height: 100%; 
+  height: 100vh;
+  overflow: hidden; 
 }
 
 .home-title {
   font-size: calc(30px + 2vmin);
   letter-spacing: 15px;
   font-family: $art-font;
-  text-shadow:
-  0 0 5px #fff,
-  0 0 10px #fff,
-  0 0 20px #fff,
-  0 0 40px rgb(252, 22, 225),
-  0 0 80px rgb(252, 22, 225),
-  0 0 90px rgb(252, 22, 225),
-  0 0 100px rgb(252, 22, 225),
-  0 0 150px rgb(252, 22, 225);
+  animation: glow 1.5s ease-in-out infinite alternate;
+  @extend %text-neon-glow;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px white;
+  }
+  to {
+    text-shadow: 0 0 30px white, 0 0 10px whitesmoke;
+  }
 }
 
 .home-greeting {
   font-size: xx-large; 
   margin-bottom: 50px;
-  font-weight: 500;  
+  // font-weight: 500;
+  @extend %functional-italic-light;  
 }
 
 .handle-song-icon {
