@@ -1,5 +1,10 @@
 # CarryOkay
 
+# README concisely communicates the team’s individual and joint learning goals, the evolution of the project, and team member reflections while using good formatting to enhance readability
+# README links to all user GitHub profiles and any applicable repos/deployed sites
+
+
+
 This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3/stretch.html) by [Elizabeth Hahn](https://github.com/elizhahn), [Jessica Justice](https://github.com/m1073496), [Marika Shanahan](https://github.com/monshan).
 
 ## Synopsis
