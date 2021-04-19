@@ -159,11 +159,18 @@ describe('Lyrics card', () => {
     cy.intercept( 'https://carryokay-server.herokuapp.com/genres', {fixture:"genre_data.json"})
     cy.intercept('https://carryokay-server.herokuapp.com/songs', {fixture:"song_data.json"})
     cy.visit('http://localhost:3000');
-    cy.get('[data-cy=my-songs-nav]').click();
+    cy.get('[data-cy=song-book-nav]').click();
    });
 
-   it('should be a test', () => {
-   cy.expect(true).to.equal(true)
+   it.only('should display a lyric card for all views', () => {
+   cy.get('[data-cy=microphone-icon]').first().click();
+   cy.get('[data-cy=lyric-content]').contains('Just as you take my hand');
+   cy.get('[data-cy=lyric-close-icon]').click();
+   cy.get('[data-cy=song-card-btn]').first().click();
+   cy.get('[data-cy=my-songs-nav]').click();
+   cy.get('[data-cy=microphone-icon]').click();
+   cy.get('[data-cy=lyric-content]').contains('Just as you take my hand');
+
    });
 
 });
