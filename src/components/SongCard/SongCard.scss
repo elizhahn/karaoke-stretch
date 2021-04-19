@@ -1,6 +1,8 @@
+@import '../../partials/variables', '../../partials/extends';
+
 .song-card {
   border-radius: 15px;
-  box-shadow: 0px 0px 11px 1px rgb(192, 47, 192);
+  box-shadow: 0px 0px 11px 1px whitesmoke;
   display: grid;
   position: relative;
   grid-template-columns: 225px auto;
@@ -28,10 +30,27 @@
   align-items: center;
 }
 
+.artist {
+  @extend %functional-italic-light;  
+}
+
 .genres {
   width: 100%;
   display: flex;
-  list-style: none ;
+  list-style: none;
+  padding-inline-start: 0px;
+
+  li {
+    background-color: #a6c0fe;
+    padding: 8px;
+    border-radius: 30px;
+    margin: 10px;
+
+    &:hover {
+      background-color: #f68084;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
 }
 
 .song-details > * {

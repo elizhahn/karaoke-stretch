@@ -33,7 +33,7 @@ render() {
 
   const listItems = genres.map(genre => {
     return (
-      <li className="genre" key={ `${title}-${genre}` } >{ genre }</li>
+      <li key={ `${title}-${genre}` } >{ `#${genre}` }</li>
     );
   });
   
@@ -43,7 +43,7 @@ render() {
         <img src={ album_cover } data-cy="album-img" alt={ `${title} by ${artist} album cover art` }/>
         <article className="song-details">
           <h2>{ title }</h2>
-          <p>Artist: { artist }</p>
+          <p className="artist">Artist: { artist }</p>
           <ul className="genres">
             { listItems }
           </ul>
