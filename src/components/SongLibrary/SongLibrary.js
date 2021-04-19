@@ -65,9 +65,9 @@ class SongLibrary extends Component {
       <>
         <SearchBar searchForSongs={this.searchForSongs} />
         <p data-cy="search-msg">{this.state.searchResultsMsg}</p>
-        <div className="library">
+        <main className="library">
           {allSongs}
-        </div>
+        </main>
       </>
     )
   }

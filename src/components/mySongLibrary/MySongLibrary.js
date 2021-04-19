@@ -20,9 +20,9 @@ const MySongLibrary = (props) => {
     );
   })
   return (
-    <section className="my-library">
+    <main className="my-library">
       {mySongList}
-    </section>
+    </main>
   )
   
 }

@@ -37,19 +37,19 @@ render() {
   });
   
   return (
-      <div className="song-card" data-cy="song-card">
+      <article className="song-card" data-cy="song-card">
         <img 
         src={ album_cover } 
         data-cy="album-img" 
         alt={ `${title} by ${artist} album cover art` }
         />
-        <article className="song-details">
+        <div className="song-details">
           <h2>{ title }</h2>
           <p className="artist">Artist: { artist }</p>
           <ul className="genres">
             { listItems }
           </ul>
-        </article>
+        </div>
         <button 
         className="handle-song-btn" 
         title="add-to-my-songs-list"
@@ -81,7 +81,7 @@ render() {
         closeLyrics={ this.closeLyrics } 
         error={ this.state.error }
         /> }
-      </div>
+      </article>
 
   );
  };
