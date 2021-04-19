@@ -1,5 +1,22 @@
 describe('CarryOkay', () => {
 
+  describe('Server error message', () => {
+  
+    it('Should display a message to the user if there and issue with the server', () =>{
+      cy.intercept({
+        method: 'GET', 
+        url:'/songs'
+      },
+      {
+        statusCode: 500,
+      })
+      cy.visit('http://localhost:3000');
+      cy.get('[data-cy=song-book-nav]').click();
+      cy.get('[data-cy=server-error-msg]').contains('Oops, our system seems to be down... how embarassing. Try again in a few moments!');
+  
+    });
+  });
+  
  beforeEach(() => {
   cy.intercept( '/genres', {fixture:"genre_data.json"})
   cy.intercept('/songs', {fixture:"song_data.json"})
@@ -63,9 +80,6 @@ describe('CarryOkay', () => {
 
   describe('My Songs', () => {
     beforeEach(() => {
-      cy.intercept( '/genres', {fixture:'genre_data.json'});
-      cy.intercept('/songs', {fixture:'song_data.json'});
-      cy.visit('http://localhost:3000');
       cy.get('[data-cy=my-songs-nav]').click();
      });
 
@@ -104,9 +118,6 @@ describe('CarryOkay', () => {
   describe('Song Book', () => {
 
     beforeEach(() => {
-      cy.intercept( '/genres', {fixture:'genre_data.json'});
-      cy.intercept('/songs', {fixture:'song_data.json'})
-      cy.visit('http://localhost:3000');
       cy.get('[data-cy=song-book-nav]').click();
       });
 
@@ -130,18 +141,16 @@ describe('CarryOkay', () => {
     it('should allow user to make a search', () => {
       cy.get('[data-cy=search-bar]').type('usher');
       cy.get('[data-cy=search-btn').click()
+      cy.get('[data-cy=search-msg]').contains("Showing results for 'usher':");
       cy.get('[data-cy=song-card]').should('have.length', 1)
         .and('contain', 'Usher');
-      cy.get('[data-cy=search-bar]').clear();
-      cy.get('[data-cy=search-bar]').type('body');
-      cy.get('[data-cy=search-btn').click();
-      cy.get('[data-cy=song-card]').should('have.length', 2);
     });
 
-    //still need this functionality
     it('should display a helpful message if search yields no results', () => {
-      expect(true).to.equal(false);
-    });
+      cy.get('[data-cy=search-bar]').type('frank sinatra');
+      cy.get('[data-cy=search-btn').click();
+      cy.get('[data-cy=search-msg]').contains('No results for this search. Time to freestyle! (Or try another search 😉)');
+    });  
 
     it('should allow a user to add a song to their library', () => {
       cy.get('[data-cy=song-card-btn]').first().click();
@@ -179,4 +188,21 @@ describe('CarryOkay', () => {
     });
   });
 });
+
+// describe('Server error message', () => {
+  
+//   it.only('Should display a message to the user if there and issue with the server', () =>{
+//     cy.intercept({
+//       method: 'GET', 
+//       url:'/songs'
+//     },
+//     {
+//       statusCode: 500,
+//     })
+//     cy.visit('http://localhost:3000');
+//     cy.get('[data-cy=song-book-nav]').click();
+
+//   });
+// });
+
 
