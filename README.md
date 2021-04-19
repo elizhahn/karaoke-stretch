@@ -124,7 +124,15 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ## Instructions for Installation
 
-    To run this application on your local machine, clone down this repo, change into the root directory from the command line, and run `npm install`. Then run `npm start` to open the application locally. To run the test suite locally, you will also need to run the command `npm i -D cypress` from the command line. Once it has installed, run `npx cypress open`, then select the `carry_okay_spec.js` test file. Note: you will need to run the application locally (start the server with `npm start` from the root directory on the command line) in order to run the automated tests.
+    To run this application on your local machine, clone down this repo, change into the root directory from the command line, and run `npm install`. 
+    
+    Then run `npm   start` to open the application locally. 
+    
+    To run the test suite locally, you will also need to run the command `npm i -D cypress` from the command line.
+    
+    Once it  has installed, run `npx cypress open`, then select the `carry_okay_spec.js` test file. 
+    
+    Note: you will need to run the application locally (start the server with `npm start` from the root directory on the command line) in order to run the automated tests.
 
 ## Future Iterations
 
