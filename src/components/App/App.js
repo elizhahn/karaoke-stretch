@@ -63,7 +63,7 @@ class App extends Component {
           </section>
         </Route>
         <Route path="/mysongs">
-          <Navigation dynamic="off-home-nav" />
+            <Navigation dynamic="off-home-nav" />
           { !!this.state.mySongs.length &&
           <MySongLibrary
           songs={ this.state.mySongs }
@@ -71,7 +71,7 @@ class App extends Component {
           handleSong={ this.removeSong }
           buttonIcon={ [<MdRemoveCircle className="handle-song-icon"/>] }
           /> }
-          { this.state.error && <h2>{this.state.error}</h2> }
+          { this.state.error && <p>{this.state.error}</p> }
         </Route>
         <Route path="/songbook">
           <Navigation dynamic="off-home-nav" />
@@ -86,7 +86,7 @@ class App extends Component {
              <FaHeart className="heart-icon" data-cy="heart-icon"/>
             ] }
           />}
-          { this.state.error && <h2 data-cy="server-error-msg">{ this.state.error }</h2> }
+          { this.state.error && <p data-cy="server-error-msg">{ this.state.error }</p> }
         </Route>
       </div>
     )

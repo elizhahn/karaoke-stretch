@@ -47,6 +47,7 @@ class SearchBar extends Component {
           value={ this.state.searchInput }
           onChange={ event => this.handleChange(event) }
           data-cy="search-bar"
+          aria-label="search-bar"
         />
         <button 
         onClick={ event => this.search(event) } 

@@ -64,7 +64,7 @@ class SongLibrary extends Component {
     return (
       <>
         <SearchBar searchForSongs={this.searchForSongs} />
-        <h2 data-cy="search-msg">{this.state.searchResultsMsg}</h2>
+        <p data-cy="search-msg">{this.state.searchResultsMsg}</p>
         <div className="library">
           {allSongs}
         </div>

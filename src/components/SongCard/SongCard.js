@@ -52,6 +52,7 @@ render() {
         </article>
         <button 
         className="handle-song-btn" 
+        title="add-to-my-songs-list"
         aria-label="add to favorites button" 
         disabled={ !isActive } 
         id={ id } 
@@ -64,6 +65,7 @@ render() {
           { <GiMicrophone 
           className="handle-song-icon" 
           aria-label="see lyrics button" 
+          title="see-lyrics-button"
           data-cy="microphone-icon"
           /> }
         </button>
