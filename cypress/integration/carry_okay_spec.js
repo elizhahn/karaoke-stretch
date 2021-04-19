@@ -9,8 +9,8 @@ describe('CarryOkay', () => {
   describe('App Load', () => {
 
     it('should display App title and greeting', () => {
-      cy.get('h1').contains("CarryOkay");
-      cy.get('p').contains("Hello friend 😬");
+      cy.get('[data-cy=App-title]').contains("CarryOkay");
+      cy.get('[data-cy=home-greeting]').contains("Ready to sing?");
     });
 
     it('should contain Navigation links', () => {
@@ -37,7 +37,7 @@ describe('CarryOkay', () => {
     });
 
     //still missing this functionality
-    it('should be able to navigate from My Songs view to Home view', () => {
+    it.only('should be able to navigate from My Songs view to Home view', () => {
       cy.get('[data-cy=my-songs-nav]').click();
       cy.expect(true).to.equal(true);
     });
