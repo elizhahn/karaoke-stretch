@@ -45,10 +45,10 @@ render() {
             { listItems }
           </ul>
         </article>
-        <button className="handle-song-btn" aria-label='add to favorites button' disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1] }</button>
+        <button className="handle-song-btn" aria-label='add to favorites button' disabled={ !isActive } id={ id } onClick={ () => handleSong(id) } data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1] }</button>
         <button className=" handle-song-btn lyrics-btn" onClick={() => this.getLyrics(artist, title)}>{ <GiMicrophone className="handle-song-icon" aria-label='see lyrics button' data-cy="microphone-icon"/> }</button>
-        {!!Object.keys(this.state.lyrics).length && <Lyric lyrics={ this.state.lyrics } closeLyrics={ this.closeLyrics } error={ this.state.error }/>}
-        {this.state.error && <Lyric lyrics={ this.state.lyrics } closeLyrics={ this.closeLyrics } error={ this.state.error }/>}
+        { !!Object.keys(this.state.lyrics).length && <Lyric lyrics={ this.state.lyrics } closeLyrics={ this.closeLyrics } error={ this.state.error }/> }
+        { this.state.error && <Lyric lyrics={ this.state.lyrics } closeLyrics={ this.closeLyrics } error={ this.state.error }/> }
       </div>
 
   );
