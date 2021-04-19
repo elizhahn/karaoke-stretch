@@ -34,13 +34,13 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ## Planning Resources
 
-[Project Board](https://trello.com/b/rcWungoW/stretch-project)
+- [Project Board](https://trello.com/b/rcWungoW/stretch-project)
 
-[Wireframes](https://excalidraw.com/#room=d828264f851b55b0ddac,tFSr5q35FXeVUoMCcn2YWA)
+- [Wireframes](https://excalidraw.com/#room=d828264f851b55b0ddac,tFSr5q35FXeVUoMCcn2YWA)
 
-[Miro Board - Class & Database Structure](https://miro.com/welcomeonboard/wws0nQE5F4wGSqWiccWs4RYJGZU5lMpbtFCgcL3hrrTnddj7FfLMs1eOCRSbTWtc)
+- [Miro Board - Class & Database Structure](https://miro.com/welcomeonboard/wws0nQE5F4wGSqWiccWs4RYJGZU5lMpbtFCgcL3hrrTnddj7FfLMs1eOCRSbTWtc)
 
-[DTR](https://gist.github.com/m1073496/f53e32c1796ab41ed5f767ef74846c6a)
+- [DTR](https://gist.github.com/m1073496/f53e32c1796ab41ed5f767ef74846c6a)
 
 ## Learning Goals
 
@@ -124,7 +124,7 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ## Instructions for Installation
 
-    To run this application on your local machine, clone down this repo, change into the root directory from the command line, and run `npm install`. Then run `npm     start` to open the application locally. To run the test suite locally, you will also need to run the command `npm i -D cypress` from the command line. Once it     has installed, run `npx cypress open`, then select the `carry_okay_spec.js` test file. Note: you will need to run the application locally (start the server         with `npm start` from the root directory on the command line) in order to run the automated tests.
+    To run this application on your local machine, clone down this repo, change into the root directory from the command line, and run `npm install`. Then run `npm start` to open the application locally. To run the test suite locally, you will also need to run the command `npm i -D cypress` from the command line. Once it has installed, run `npx cypress open`, then select the `carry_okay_spec.js` test file. Note: you will need to run the application locally (start the server with `npm start` from the root directory on the command line) in order to run the automated tests.
 
 ## Future Iterations
 
