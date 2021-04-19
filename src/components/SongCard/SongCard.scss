@@ -73,7 +73,7 @@
   top: 60%; 
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .song-card {
     grid-template-columns: auto;
   }
