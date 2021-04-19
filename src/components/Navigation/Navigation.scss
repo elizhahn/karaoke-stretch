@@ -8,7 +8,6 @@
   border-radius: 50%;
   margin-bottom: 40px;
   position: relative;
-  // background-image: url('../../marbled.png');
   box-shadow: 0px 0px 15px 3px whitesmoke;
 }
 
@@ -34,7 +33,6 @@
 }
 
 .home-link {
-//  text-decoration: none; 
  color: rgb(255, 255, 255);
  text-shadow: 1px 1px 2px rgb(0, 0, 0);  
  font-size: 1.4em; 
@@ -46,6 +44,16 @@
  flex-direction: column;
  justify-content: center;
  text-align: center;
+ transition: transform 0.5s,
+ letter-spacing 0.5s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+    letter-spacing: 2.5px;
+    transition: transform 0.5s,
+    letter-spacing 0.5s ease-out;
+    @extend %text-subtle-glow;
+  }
 }
 
 

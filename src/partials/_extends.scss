@@ -31,6 +31,13 @@
     0 0 150px rgb(252, 22, 225);
 }
 
+%text-subtle-glow {
+  text-shadow:
+    0 0 2px silver,
+    0 0 8px silver,
+    0 0 15px whitesmoke;
+}
+
 %song-cards-container {
   display: grid;
   max-width: 100vw;
