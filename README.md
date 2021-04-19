@@ -5,8 +5,6 @@ This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3
 ## Deployed App: [CarryOkay]()
 
 # README concisely communicates the team’s individual and joint learning goals, the evolution of the project, and team member reflections while using good formatting to enhance readability
-# README links to all user GitHub profiles and any applicable repos/deployed sites
-
 
 
 1. [Project Overview](#project-overview)
@@ -17,6 +15,7 @@ This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3
 6. [Features](#features)
 7. [Instructions for Installation](#instructions-for-installation)
 9. [Future Iterations](#future-iterations)
+10. [Project Reflections](#project-reflections)
 
 
 ## Project Overview
@@ -141,4 +140,16 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
  - Add a helpful message on the `My Songs` view that would display if a user has no songs currently saved
 
 
+## Project Reflections
 
+### Challenges
+
+  - Learning PostgreSQL and Knex.js in a week 😬
+  - Deploying our back-end to Heroku
+
+### Wins
+
+  - This was an awesome team, and a really enjoyable experience overall
+  - Communication was solid
+  - Paired-programming really got us through the heavy lifts that came with learning these new technologies
+  - Building out and deploying a full-stack application that is fully tested and 100% accessible
