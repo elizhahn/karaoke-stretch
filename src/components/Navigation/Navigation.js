@@ -35,3 +35,7 @@ const Navigation = ({ dynamic }) => {
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+  dynamic: PropTypes.sting.isRequired,
+};
