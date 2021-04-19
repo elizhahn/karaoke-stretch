@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation';
-import SongLibrary from './components/SongLibrary/SongLibrary';
-import MySongLibrary from './components/mySongLibrary/MySongLibrary';
-import { fetchAllSongData } from './APICalls';
+import Navigation from '../Navigation/Navigation';
+import SongLibrary from '../SongLibrary/SongLibrary';
+import MySongLibrary from '../mySongLibrary/MySongLibrary';
+import { fetchAllSongData } from '../../APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa';
-import { modifyData } from './utility';
-import './partials/_variables.scss'
+import { modifyData } from '../../utility';
+import '../../partials/_variables.scss'
 import './App.scss';
 
 
