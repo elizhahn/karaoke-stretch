@@ -21,6 +21,7 @@ const Navigation = ({ dynamic }) => {
 
   return (
     <nav className={ dynamic }>
+      <div className="marbled"></div>
       <div className="home-btns home-my-songs">
         <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
       </div>
