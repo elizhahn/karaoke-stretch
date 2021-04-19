@@ -1,3 +1,12 @@
+@mixin search-items {
+  font-size: 100%;
+  align-self: center;
+  background: none;
+  margin: 5px;
+  height: 50%;
+  border: none;
+}
+
 .search-container {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -8,48 +17,45 @@
 }
 
 input.search-bar {
+  @include search-items;
+  position: relative;
   width: 40%;
   height: 20px;
-  font-size: 100%;
   margin: 10px;
   padding-left: 25px;
-  align-self: center;
-  background-image: url(https://www.flaticon.com/svg/vstatic/svg/900/900930.svg?token=exp=1618726933~hmac=e5c3912afdce6b6f8aed9cfc115cc15d);
-  background-repeat: no-repeat;
-  border: 1px solid black;
-  border-top: none;
+  border-bottom: 1px solid black;
 }
 
 input[type="text"]:focus {
-  color: #E18728;
-  border-color: #E18728;
+  color: white;
+  border-color: white;
   outline: none;
 }
 
+.search-icon {
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  position: sticky;
+  left: 29.5%;
+  margin-bottom: 3px;
+}
+
 .search-btn {
-  background-color: white;
+  @include search-items;
   border: 1px solid black;
   border-radius: 3px;
-  margin: 5px;
-  height: 50%;
-  font-size: 100%;
-  align-self: center;
 }
 
 .search-btn:focus {
-  color: #E18728;
-  border-color: #E18728;
+  color: white;
+  border-color: white;
 }
 
 .clear-btn {
-  border: none;
-  background-color: white;
-  margin: 5px;
-  height: 50%;
-  font-size: 100%;
-  align-self: center;
+  @include search-items;
 }
 
 .clear-btn:focus {
-  color: #E18728;
+  color: white;
 }
