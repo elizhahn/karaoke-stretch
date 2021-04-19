@@ -21,7 +21,7 @@ This is a Mod 3 [Front-End Project](https://frontend.turing.io/projects/module-3
 
 ## Project Overview
 
-The goal of this project was to self-teach back-end technologies and create a database, build out a server, and make network requests to access that data. We decided to learn PostgreSQL and Knex, and to build upon our understanding of Node.js and Express.js. We also built out the front-end of the application using React.js, HTML5 and CSS3/SCSS, and implemented an automated testing suite using Cypress. In summary, this is a fully tested, PERN stack application.
+The goal of this project was to self-teach back-end technologies by creating a database, building out a server, and making network requests to access that data. We decided to learn PostgreSQL and Knex, and to build upon our understanding of Node.js and Express.js. We also built out the front-end of the application using React.js, HTML5 and CSS3/SCSS, and implemented an automated testing suite using Cypress. In summary, this is a fully tested, PERN stack application.
 
 
 ## App Overview
