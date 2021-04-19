@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Navigation.scss'
+import PropTypes from 'prop-types';
+import './Navigation.scss';
 
 const Navigation = ({ dynamic }) => {
   const determineDivider = () => {
@@ -24,18 +25,18 @@ const Navigation = ({ dynamic }) => {
       <div className="home-btns home-my-songs">
         <NavLink activeClassName="mysongs-active"  className={ determineHomeLink() } id="my-songs" to="/mysongs" data-cy="my-songs-nav">My Songs</NavLink>
       </div>
-      <div className={ determineDivider() } data-cy='home-nav'>
-        {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl" aria-label='navigate home link'/>}
+      <div className={ determineDivider() } data-cy="home-nav">
+        {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl" aria-label="navigate home link"/>}
       </div>
       <div className="home-btns home-song-book">
         <NavLink activeClassName="songbook-active" className="home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song Book</NavLink>
       </div>
     </nav>
-  )
-}
+  );
+};
 
 export default Navigation;
 
 Navigation.propTypes = {
-  dynamic: PropTypes.sting.isRequired,
+  dynamic: PropTypes.string.isRequired,
 };
