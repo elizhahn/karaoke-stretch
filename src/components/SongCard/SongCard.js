@@ -17,27 +17,25 @@ class SongCard extends Component {
 getLyrics = (artist, songtitle) => {
   fetchLyrics(artist, songtitle)
   .then(data => {
-    console.log(data)
-    const formattedLyrics = formatLyrics(data, songtitle)
-    this.setState({lyrics: formattedLyrics})
+    const formattedLyrics = formatLyrics(data, songtitle);
+    this.setState({ lyrics: formattedLyrics });
   })
-  .catch(error => this.setState({error: "Lyrics unavailable"}))
+  .catch(error => this.setState({ error: "Lyrics unavailable" }));
 }
 
 closeLyrics = () => {
-  this.setState({lyrics: {}, error: ''})
+  this.setState({ lyrics: {}, error: '' });
 }
 
 render() {
-  console.log(this.state)
-  const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props
+  const { id, title, artist, genres, album_cover, handleSong, buttonIcon, isActive } = this.props;
   const listItems = genres.map(genre => {
     return (
       <li className="genre" key={ `${title}-${genre}` } >{ genre }</li>
     );
   });
+
   return (
-    
       <div className='song-card' data-cy="song-card">
         <img src={ album_cover } data-cy="album-img" alt={ `${title} by ${artist} album cover art` }/>
         <article className="song-details">
@@ -47,10 +45,10 @@ render() {
             { listItems }
           </ul>
         </article>
-        <button className="handle-song-btn" disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1]}</button>
-        <button className=" handle-song-btn lyrics-btn" onClick={() => this.getLyrics(artist, title)}>{<GiMicrophone className="handle-song-icon" data-cy="microphone-icon"/>}</button>
-        {!!Object.keys(this.state.lyrics).length && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
-        {this.state.error && <Lyric lyrics={this.state.lyrics} closeLyrics={this.closeLyrics} error={this.state.error}/>}
+        <button className="handle-song-btn" aria-label='add to favorites button' disabled={!isActive} id={id} onClick={() => handleSong(id)} data-cy="song-card-btn">{ isActive ? buttonIcon[0] : buttonIcon[1] }</button>
+        <button className=" handle-song-btn lyrics-btn" onClick={() => this.getLyrics(artist, title)}>{ <GiMicrophone className="handle-song-icon" aria-label='see lyrics button' data-cy="microphone-icon"/> }</button>
+        {!!Object.keys(this.state.lyrics).length && <Lyric lyrics={ this.state.lyrics } closeLyrics={ this.closeLyrics } error={ this.state.error }/>}
+        {this.state.error && <Lyric lyrics={ this.state.lyrics } closeLyrics={ this.closeLyrics } error={ this.state.error }/>}
       </div>
 
   );
