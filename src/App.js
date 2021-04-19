@@ -66,26 +66,26 @@ class App extends Component {
         </Route>
         <Route path="/mysongs">
           <Navigation dynamic="off-home-nav" />
-          {!!this.state.mySongs.length &&
+          { !!this.state.mySongs.length &&
           <MySongLibrary
           songs={ this.state.mySongs }
           mySongs={this.state.mySongs }
           handleSong={ this.removeSong }
           buttonIcon={ [<MdRemoveCircle className="handle-song-icon"/>] }
-          />}
-          {this.state.error &&
-          <h2>{this.state.error}</h2>}
+          /> }
+          { this.state.error &&
+          <h2>{this.state.error}</h2> }
         </Route>
         <Route path="/songbook">
           <Navigation dynamic="off-home-nav" />
-          {!!this.state.songBook.length &&
+          { !!this.state.songBook.length &&
           <SongLibrary
           songs={ this.state.songBook }
           mySongs={ this.state.mySongs }
           handleSong={ this.addSong }
           buttonIcon={ [<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>] }
           />}
-          {this.state.error && <h2 data-cy="server-error-msg">{this.state.error}</h2>}
+          { this.state.error && <h2 data-cy="server-error-msg">{ this.state.error }</h2> }
         </Route>
       </div>
     )
