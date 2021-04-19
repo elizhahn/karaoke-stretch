@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 import SongCard from '../SongCard/SongCard';
 import SearchBar from "../SearchBar/SearchBar";
 import '../SongLibrary/SongLibrary.scss';
@@ -76,3 +77,14 @@ class SongLibrary extends Component {
 }
 
 export default SongLibrary;
+
+SongLibrary.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
+  genres: PropTypes.array.isRequired,
+  album_cover: PropTypes.string.isRequired,
+  handleSong: PropTypes.func.isRequired,
+  buttonIcon: PropTypes.array.isRequired,
+  isActive: PropTypes.bool.isRequired
+};
