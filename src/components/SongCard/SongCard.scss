@@ -1,4 +1,4 @@
-@import '../../partials/variables', '../../partials/extends';
+@import '../../partials/variables', '../../partials/extends', '../../partials/mixins';
 
 .song-card {
   border-radius: 15px;
@@ -9,17 +9,27 @@
   grid-template-rows: auto;
   padding: 10px 0px;
   background-color: white;
+
+  img {
+    grid-column: 1 / 2;
+    border-radius: 50%;
+    padding: 15px;
+    width: 175px;
+    height: 175px;
+    justify-self: center;
+    align-self: center;
+  }
 }
 
-.song-card > img {
-  grid-column: 1 / 2;
-  border-radius: 50%;
-  padding: 15px;
-  width: 175px;
-  height: 175px;
-  justify-self: center;
-  align-self: center;
-}
+// .song-card > img {
+//   grid-column: 1 / 2;
+//   border-radius: 50%;
+//   padding: 15px;
+//   width: 175px;
+//   height: 175px;
+//   justify-self: center;
+//   align-self: center;
+// }
 
 .song-details {
   text-align: left;
@@ -31,6 +41,7 @@
 }
 
 .artist {
+  padding-left: 0px;
   @extend %functional-italic-light;  
 }
 
@@ -72,3 +83,28 @@
   top: 60%; 
 }
 
+@media (max-width: 480px) {
+  .song-card {
+    grid-template-columns: auto;
+  }
+
+  .song-details {
+    grid-column: span 1;
+    * {
+      text-align: center;
+    }
+  }
+
+  .genres {
+    justify-content: center;
+  }
+
+  .handle-song-btn {
+    right: 20px;
+    top: 4%;
+  }
+
+  .lyrics-btn {
+    top: 15%; 
+  }
+}
