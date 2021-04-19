@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import PropTypes from 'prop-types';
 import SongCard from '../SongCard/SongCard';
 import SearchBar from "../SearchBar/SearchBar";
 
@@ -7,13 +8,13 @@ class SongLibrary extends Component {
     super(props)
     this.state = {
       renderedSongs: [],
-      searchResultsMsg: ""
+      searchResultsMsg: ''
     }
   }
 
    searchForSongs = (searchQuery) => {
      if (!searchQuery) {
-       this.setState({ renderedSongs: this.props.songs, searchResultsMsg: "" })
+       this.setState({ renderedSongs: this.props.songs, searchResultsMsg: '' })
      } else {
        let modifiedSearchQuery = searchQuery.toUpperCase();
        let matchingSongs = this.props.songs.filter(song => song.title.toUpperCase().includes(modifiedSearchQuery)
@@ -23,7 +24,7 @@ class SongLibrary extends Component {
        if (matchingSongs.length) {
          this.setState({ searchResultsMsg: `Showing results for '${searchQuery.toLowerCase()}':`, renderedSongs: matchingSongs })
        } else {
-         this.setState({ searchResultsMsg: "No results for this search. Time to freestyle! (Or try another search 😉)", renderedSongs: [] })
+         this.setState({ searchResultsMsg: 'No results for this search. Time to freestyle! (Or try another search 😉)', renderedSongs: [] })
        };
 
      };
@@ -64,7 +65,7 @@ class SongLibrary extends Component {
       <>
         <SearchBar searchForSongs={this.searchForSongs} />
         <h2 data-cy="search-msg">{this.state.searchResultsMsg}</h2>
-        <div className='library'>
+        <div className="library">
           {allSongs}
         </div>
       </>
@@ -73,3 +74,9 @@ class SongLibrary extends Component {
 }
 
 export default SongLibrary;
+
+SongLibrary.propTypes = {
+  songs:PropTypes.array.isRequired, 
+  handleSong: PropTypes.func.isRequired,
+  buttonIcon: PropTypes.array.isRequired,
+};

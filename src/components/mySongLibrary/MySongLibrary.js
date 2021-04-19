@@ -1,5 +1,7 @@
 import React from 'react';
 import SongCard from '../SongCard/SongCard';
+import PropTypes from 'prop-types';
+
 
 const MySongLibrary = (props) => {
   const mySongList = props.songs.map(song => {
@@ -26,3 +28,9 @@ const MySongLibrary = (props) => {
 }
 
 export default MySongLibrary; 
+
+MySongLibrary.propTypes = {
+  songs:PropTypes.array.isRequired,
+  handleSong: PropTypes.func.isRequired,
+  buttonIcon: PropTypes.array.isRequired,
+};

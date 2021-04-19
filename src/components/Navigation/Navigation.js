@@ -1,5 +1,7 @@
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 const Navigation = ({ dynamic }) => {
   return (
@@ -9,7 +11,11 @@ const Navigation = ({ dynamic }) => {
       {dynamic !== 'home-nav' && <NavLink to="/" className="home-link vinyl" data-cy='home-nav'/>}
       <NavLink className="home-btns home-link" id="song-book" to="/songbook" data-cy="song-book-nav">Song Book</NavLink>
     </nav>
-  )
-}
+  );
+};
 
-export default withRouter(Navigation);
+export default Navigation;
+
+Navigation.propTypes = {
+  dynamic: PropTypes.string.isRequired,
+};

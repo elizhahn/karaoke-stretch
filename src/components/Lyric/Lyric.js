@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { MdClose } from "react-icons/md";
 
 const Lyrics = (props) => {
@@ -15,5 +16,10 @@ const Lyrics = (props) => {
 }
 
 
-
 export default Lyrics;
+
+Lyrics.propTypes = {
+  lyrics: PropTypes.object.isRequired,
+  closeLyrics: PropTypes.func.isRequired,
+  error: PropTypes.string.isRequired
+};
