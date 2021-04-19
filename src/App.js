@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       songBook: [],
       mySongs: [],
-      error: ""
+      error: ''
     }
   }
 
@@ -34,9 +34,9 @@ class App extends Component {
 
   handleError = (error) => {
     if (error < 500) {
-      return "Hmmm, something's not quite right. Care to try again?"
+      return 'Hmmm, something\'s not quite right. Care to try again?'
     } else {
-      return "Oops, our system seems to be down... how embarassing. Try again in a few moments!"
+      return 'Oops, our system seems to be down... how embarassing. Try again in a few moments!'
     }
   }
 
@@ -73,8 +73,7 @@ class App extends Component {
           handleSong={ this.removeSong }
           buttonIcon={ [<MdRemoveCircle className="handle-song-icon"/>] }
           /> }
-          { this.state.error &&
-          <h2>{this.state.error}</h2> }
+          { this.state.error && <h2>{this.state.error}</h2> }
         </Route>
         <Route path="/songbook">
           <Navigation dynamic="off-home-nav" />
@@ -83,7 +82,11 @@ class App extends Component {
           songs={ this.state.songBook }
           mySongs={ this.state.mySongs }
           handleSong={ this.addSong }
-          buttonIcon={ [<RiHeartAddLine className="handle-song-icon"/> , <FaHeart className="heart-icon" data-cy="heart-icon"/>] }
+          buttonIcon={ 
+            [
+             <RiHeartAddLine className="handle-song-icon"/> , 
+             <FaHeart className="heart-icon" data-cy="heart-icon"/>
+            ] }
           />}
           { this.state.error && <h2 data-cy="server-error-msg">{ this.state.error }</h2> }
         </Route>
