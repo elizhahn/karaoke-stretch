@@ -30,12 +30,7 @@ const MySongLibrary = (props) => {
 export default MySongLibrary; 
 
 MySongLibrary.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  artist: PropTypes.string.isRequired,
-  genres: PropTypes.array.isRequired,
-  album_cover: PropTypes.string.isRequired,
+  songs:PropTypes.array.isRequired,
   handleSong: PropTypes.func.isRequired,
   buttonIcon: PropTypes.array.isRequired,
-  isActive: PropTypes.bool.isRequired
 };

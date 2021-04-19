@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import './partials/_variables.scss'
 import { Route } from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
 import SongLibrary from './components/SongLibrary/SongLibrary';
 import MySongLibrary from './components/mySongLibrary/MySongLibrary';
-import './App.scss';
 import { fetchAllSongData } from './APICalls';
 import { RiHeartAddLine } from 'react-icons/ri';
 import { MdRemoveCircle } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa';
 import { modifyData } from './utility';
+import './partials/_variables.scss'
+import './App.scss';
 
 
 class App extends Component {
