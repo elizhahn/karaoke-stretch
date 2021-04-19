@@ -35,8 +35,11 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 ## Planning Resources
 
 [Project Board](https://trello.com/b/rcWungoW/stretch-project)
+
 [Wireframes](https://excalidraw.com/#room=d828264f851b55b0ddac,tFSr5q35FXeVUoMCcn2YWA)
+
 [Miro Board - Class & Database Structure](https://miro.com/welcomeonboard/wws0nQE5F4wGSqWiccWs4RYJGZU5lMpbtFCgcL3hrrTnddj7FfLMs1eOCRSbTWtc)
+
 [DTR](https://gist.github.com/m1073496/f53e32c1796ab41ed5f767ef74846c6a)
 
 ## Learning Goals
