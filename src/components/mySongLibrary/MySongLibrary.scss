@@ -1,11 +1,11 @@
 .my-library {
   display: grid;
-  width: 100%;
+  max-width: 100%;
   grid-template-columns: repeat(2, minmax( 260px, 1fr));
   grid-template-rows: auto;
-  gap: 10px;
-  justify-items: stretch;
-  align-items: stretch
+  gap: 25px;
+  align-items: stretch;
+  margin: 90px 20px;
 }
 
 .my-library > * {
