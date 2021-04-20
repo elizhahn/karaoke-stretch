@@ -57,8 +57,8 @@ class App extends Component {
       <div className="App">
         <Route exact path="/">
           <section className="home-container">
-            <h1 className="home-title">CarryOkay</h1>
-            <p className="home-greeting">Ready to sing?</p>
+            <h1 className="home-title" data-cy="App-title">CarryOkay</h1>
+            <p className="home-greeting" data-cy="home-greeting">Ready to sing?</p>
             <Navigation dynamic="home-nav" />
           </section>
         </Route>
@@ -80,9 +80,9 @@ class App extends Component {
           songs={ this.state.songBook }
           mySongs={ this.state.mySongs }
           handleSong={ this.addSong }
-          buttonIcon={ 
+          buttonIcon={
             [
-             <RiHeartAddLine className="handle-song-icon"/> , 
+             <RiHeartAddLine className="handle-song-icon"/> ,
              <FaHeart className="heart-icon" data-cy="heart-icon"/>
             ] }
           />}
