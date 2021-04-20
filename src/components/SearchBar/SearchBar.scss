@@ -24,7 +24,6 @@ input.search-bar {
 input.search-bar:focus {
   outline: none;
   color: white;
-  @extend %text-subtle-glow;
 }
 
 .search-icon {
@@ -34,6 +33,10 @@ input.search-bar:focus {
   position: sticky;
   left: 34.5%;
   margin-bottom: 3px;
+}
+
+.search-bar::placeholder {
+  color: #73A1E9;
 }
 
 .search-btn {
