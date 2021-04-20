@@ -103,11 +103,11 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ### Search for Songs by Title, Artist, or Genre
 
-![](https://media.giphy.com/media/BNBEKgVW2hjGIrtoCy/giphy.gif)
+![](https://media.giphy.com/media/31lzkPVyhKX0YUeEd4/giphy.gif)
 
-### Favorite and Remove Songs
+### Favorite and Unfavorite Songs
 
-![](https://media.giphy.com/media/IoM34CQQAs8313HvS8/giphy.gif)
+![](https://media.giphy.com/media/bng8D4AwsIif0knGg5/giphy.gif)
 
 ### Find Lyrics
 
