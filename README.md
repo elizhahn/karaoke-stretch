@@ -94,7 +94,7 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ### Song Book View
 
-<img width="1271" alt="Screen Shot 2021-04-19 at 3 50 32 PM" src="https://user-images.githubusercontent.com/73088654/115307849-0c793a80-a127-11eb-9f17-3db64ee87f43.png">
+<img width="1438" alt="Screen Shot 2021-04-19 at 8 22 09 PM" src="https://user-images.githubusercontent.com/73088654/115327883-f54d4380-a14c-11eb-83e1-684020672b59.png">
 
 
 ### My Songs View
@@ -111,7 +111,7 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ### Find Lyrics
 
-![](https://media.giphy.com/media/9TqsAH5eU9M0cUABDP/giphy.gif)
+![](https://media.giphy.com/media/zGbaocfWUzoJqCKXCo/giphy.gif)
 
 ### Responsive Design
 
