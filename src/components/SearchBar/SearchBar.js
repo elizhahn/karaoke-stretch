@@ -32,16 +32,15 @@ class SearchBar extends Component {
   render () {
     return (
       <form data-cy="search-form" className="search-container">
-      <button 
-      onClick={ event => this.clearSearch(event) } 
-      data-cy="clear-btn" 
+      <button
+      onClick={ event => this.clearSearch(event) }
+      data-cy="clear-btn"
       className="clear-btn">Cancel
       </button>
         <img className="search-icon" src={search} alt="search-icon" />
         <input
           className="search-bar"
           type="text"
-          img="./zoom.png"
           placeholder="Search for songs, artists, or genres"
           name="searchInput"
           value={ this.state.searchInput }
@@ -49,9 +48,9 @@ class SearchBar extends Component {
           data-cy="search-bar"
           aria-label="search-bar"
         />
-        <button 
-        onClick={ event => this.search(event) } 
-        data-cy="search-btn" 
+        <button
+        onClick={ event => this.search(event) }
+        data-cy="search-btn"
         className="search-btn">Search!
         </button>
       </form>
@@ -60,4 +59,3 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
-
