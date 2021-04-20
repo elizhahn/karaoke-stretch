@@ -101,7 +101,9 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 
 
-### Search for Songs
+### Search, Favorite and Unfavorite Songs & Find Lyrics
+
+![](https://media.giphy.com/media/0c4b0W2JxauMR8dGME/giphy.gif)
 
 ![](https://media.giphy.com/media/BNBEKgVW2hjGIrtoCy/giphy.gif)
 
@@ -115,7 +117,7 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ### Responsive Design
 
-
+![](https://media.giphy.com/media/uvPQqAoF0nOy75Gxxm/giphy.gif)
 
 ### Accessibility
 
