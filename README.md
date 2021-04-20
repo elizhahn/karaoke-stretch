@@ -92,18 +92,16 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ![](https://media.giphy.com/media/Hycro6UotaEas7gcnX/giphy.gif)
 
-### Song Book
+### Song Book View
 
 <img width="1271" alt="Screen Shot 2021-04-19 at 3 50 32 PM" src="https://user-images.githubusercontent.com/73088654/115307849-0c793a80-a127-11eb-9f17-3db64ee87f43.png">
 
 
-### My Songs
+### My Songs View
 
+<img width="1412" alt="Screen Shot 2021-04-19 at 8 13 19 PM" src="https://user-images.githubusercontent.com/73088654/115327173-bb2f7200-a14b-11eb-8572-df8d5586e81c.png">
 
-
-### Search, Favorite and Unfavorite Songs & Find Lyrics
-
-![](https://media.giphy.com/media/0c4b0W2JxauMR8dGME/giphy.gif)
+### Search for Songs by Title, Artist, or Genre
 
 ![](https://media.giphy.com/media/BNBEKgVW2hjGIrtoCy/giphy.gif)
 
