@@ -90,7 +90,7 @@ CarryOkay: the app you carry, the app that makes everything okay, the app for ka
 
 ### Homepage
 
-![](https://media.giphy.com/media/Hycro6UotaEas7gcnX/giphy.gif)
+![](https://media.giphy.com/media/NxOHXg05JsCTGyqiMt/giphy.gif)
 
 ### Song Book View
 
